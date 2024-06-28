@@ -13,30 +13,30 @@ const Post: Collection = {
   fields: [
     {
       type: "string",
-      label: "Title",
+      label: "Titre",
       name: "title",
       isTitle: true,
       required: true,
     },
     {
       type: "image",
-      name: "heroImg",
+      name: "Image",
       label: "Hero Image",
     },
     {
       type: "rich-text",
-      label: "Excerpt",
+      label: "Extrait",
       name: "excerpt",
     },
     {
       type: "reference",
-      label: "Author",
+      label: "Auteur",
       name: "author",
       collections: ["author"],
     },
     {
       type: "datetime",
-      label: "Posted Date",
+      label: "Date de publication",
       name: "date",
       ui: {
         dateFormat: "MMMM DD YYYY",
@@ -45,12 +45,12 @@ const Post: Collection = {
     },
     {
       type: "rich-text",
-      label: "Body",
+      label: "Contenu",
       name: "_body",
       templates: [
         {
           name: "DateTime",
-          label: "Date & Time",
+          label: "Date & Heure",
           inline: true,
           fields: [
             {
@@ -63,27 +63,27 @@ const Post: Collection = {
         },
         {
           name: "BlockQuote",
-          label: "Block Quote",
+          label: "Bloc de citation",
           fields: [
             {
               name: "children",
-              label: "Quote",
+              label: "Citation",
               type: "rich-text",
             },
             {
               name: "authorName",
-              label: "Author",
+              label: "Auteur",
               type: "string",
             },
           ],
         },
         {
           name: "NewsletterSignup",
-          label: "Newsletter Sign Up",
+          label: "Encart d'insciption Newsletter",
           fields: [
             {
               name: "children",
-              label: "CTA",
+              label: "Bouton d'action",
               type: "rich-text",
             },
             {
@@ -93,19 +93,19 @@ const Post: Collection = {
             },
             {
               name: "buttonText",
-              label: "Button Text",
+              label: "Intitulé du bouton",
               type: "string",
             },
             {
               name: "disclaimer",
-              label: "Disclaimer",
+              label: "Clause de non responsabilité",
               type: "rich-text",
             },
           ],
           ui: {
             defaultItem: {
-              placeholder: "Enter your email",
-              buttonText: "Notify Me",
+              placeholder: "e-mail",
+              buttonText: "Souscrire",
             },
           },
         },

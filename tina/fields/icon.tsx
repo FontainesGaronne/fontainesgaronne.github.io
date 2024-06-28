@@ -24,7 +24,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
 
   const inputLabel = Object.keys(IconOptions).includes(input.value)
     ? parseIconName(input.value)
-    : "Select Icon";
+    : "Selectionnez un pictogramme";
   const InputIcon = IconOptions[input.value] ? IconOptions[input.value] : null;
 
   return (

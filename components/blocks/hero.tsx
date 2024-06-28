@@ -107,17 +107,17 @@ export const heroBlockSchema: TinaTemplate = {
   fields: [
     {
       type: "string",
-      label: "Tagline",
+      label: "Tags",
       name: "tagline",
     },
     {
       type: "string",
-      label: "Headline",
+      label: "Titre de l'encart",
       name: "headline",
     },
     {
-      label: "Text",
       name: "text",
+      label: "Contenu",
       type: "rich-text",
     },
     {
@@ -127,7 +127,7 @@ export const heroBlockSchema: TinaTemplate = {
       list: true,
       ui: {
         defaultItem: {
-          label: "Action Label",
+          label: "Intitulé de l'action",
           type: "button",
           icon: true,
           link: "/",
@@ -136,7 +136,7 @@ export const heroBlockSchema: TinaTemplate = {
       },
       fields: [
         {
-          label: "Label",
+          label: "Intitulé",
           name: "label",
           type: "string",
         },
@@ -145,17 +145,17 @@ export const heroBlockSchema: TinaTemplate = {
           name: "type",
           type: "string",
           options: [
-            { label: "Button", value: "button" },
-            { label: "Link", value: "link" },
+            { label: "Bouton", value: "button" },
+            { label: "Lien", value: "link" },
           ],
         },
         {
-          label: "Icon",
+          label: "Pictogramme",
           name: "icon",
           type: "boolean",
         },
         {
-          label: "Link",
+          label: "Lien",
           name: "link",
           type: "string",
         },
@@ -168,24 +168,25 @@ export const heroBlockSchema: TinaTemplate = {
       fields: [
         {
           name: "src",
-          label: "Image Source",
+          label: "Source de l'image",
           type: "image",
         },
         {
           name: "alt",
-          label: "Alt Text",
+          label: "Texte alternatif de l'image",
+          description: "Texte restitué aux utilisateurs ne pouvant voir l'image",
           type: "string",
         },
       ],
     },
     {
       type: "string",
-      label: "Color",
+      label: "Couleur",
       name: "color",
       options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
+        { label: "Defaul", value: "default" },
+        { label: "Teinté", value: "tint" },
+        { label: "Principale", value: "primary" },
       ],
     },
   ],

@@ -22,10 +22,10 @@ const Page: Collection = {
   fields: [
     {
       type: "string",
-      label: "Title",
+      label: "Titre",
       name: "title",
       description:
-        "The title of the page. This is used to display the title in the CMS",
+        "Le titre de la page",
       isTitle: true,
       required: true,
     },
@@ -45,6 +45,12 @@ const Page: Collection = {
         contentBlockSchema,
         testimonialBlockSchema,
       ],
+    },
+    {
+      type: 'rich-text',
+      label: 'Contenu',
+      name: 'body',
+      isBody: true,
     },
   ],
 };

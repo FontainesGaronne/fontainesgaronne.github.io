@@ -20,6 +20,30 @@ query pageQuery {
   }
 }
 
+query agendaQuery {
+  ...LayoutQueryFragment
+  agendaConnection {
+    edges {
+      node {
+        id
+        date
+        startDate
+        endDate
+        title
+        excerpt
+        organizer {
+          ... on Organizer {
+            ...OrganizerParts
+          }
+        }
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+}
+
 query contentQuery($relativePath: String!) {
   ...LayoutQueryFragment
   page(relativePath: $relativePath) {
@@ -33,6 +57,19 @@ query blogPostQuery($relativePath: String!) {
     ...PostParts
     author {
       ... on Author {
+        name
+        avatar
+      }
+    }
+  }
+}
+
+query agendaItemQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  agenda(relativePath: $relativePath) {
+    ...AgendaParts
+    organizer {
+      ... on Organizer {
         name
         avatar
       }

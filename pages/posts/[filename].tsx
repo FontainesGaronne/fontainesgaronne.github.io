@@ -22,7 +22,7 @@ export default function BlogPostPage(
   }
   return (
     <Layout>
-      <div>No data</div>;
+      <div>Aucune publication</div>
     </Layout>
   );
 }

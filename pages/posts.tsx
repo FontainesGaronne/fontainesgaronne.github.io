@@ -8,7 +8,9 @@ import { InferGetStaticPropsType } from "next";
 export default function HomePage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const posts = props.data.postConnection.edges;
+  const posts = props.data.postConnection.edges.sort((a, b) => {
+    return b.node.date.localeCompare(a.node.date);
+  })
 
   return (
     <Layout>

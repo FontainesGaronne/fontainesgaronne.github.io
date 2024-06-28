@@ -63,7 +63,7 @@ export const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
 
 export const testimonialBlockSchema: TinaTemplate = {
   name: "testimonial",
-  label: "Testimonial",
+  label: "Témoignages",
   ui: {
     previewSrc: "/blocks/testimonial.png",
     defaultItem: {
@@ -79,22 +79,22 @@ export const testimonialBlockSchema: TinaTemplate = {
       ui: {
         component: "textarea",
       },
-      label: "Quote",
+      label: "Citation",
       name: "quote",
     },
     {
       type: "string",
-      label: "Author",
+      label: "Auteur",
       name: "author",
     },
     {
       type: "string",
-      label: "Color",
+      label: "Couleur",
       name: "color",
       options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
+        { label: "Defaut", value: "default" },
+        { label: "Teinté", value: "tint" },
+        { label: "Principale", value: "primary" },
       ],
     },
   ],

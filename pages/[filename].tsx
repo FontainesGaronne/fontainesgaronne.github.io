@@ -9,10 +9,21 @@ export default function HomePage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const { data } = useTina(props);
+  
+  const nextData = data.page.blocks === null ? {
+    ...data,
+    page: {
+      ...data.page,
+      blocks: [{
+        __typename: "PageBlocksContent",
+        body: data.page.body,
+      }]
+    }
+  } : data;
 
   return (
-    <Layout rawData={data} data={data.global as any}>
-      <Blocks {...data.page} />
+    <Layout rawData={nextData} data={nextData.global as any}>
+      <Blocks {...nextData.page} />
     </Layout>
   );
 }
@@ -26,7 +37,7 @@ export const getStaticProps = async ({ params }) => {
     enableVisualEditing: process.env.VERCEL_ENV === "preview",
   };
   return {
-    props: JSON.parse(JSON.stringify(props)) as typeof props,
+    props,
   };
 };
 

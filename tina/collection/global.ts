@@ -13,27 +13,27 @@ const Global: Collection = {
   fields: [
     {
       type: "object",
-      label: "Header",
+      label: "Entête de page",
       name: "header",
       fields: [
         iconSchema as any,
         {
           type: "string",
-          label: "Name",
+          label: "Nom",
           name: "name",
         },
         {
           type: "string",
-          label: "Color",
+          label: "Couleur",
           name: "color",
           options: [
-            { label: "Default", value: "default" },
-            { label: "Primary", value: "primary" },
+            { label: "Defaut", value: "default" },
+            { label: "Principale", value: "primary" },
           ],
         },
         {
           type: "object",
-          label: "Nav Links",
+          label: "Lien du menu de navigation",
           name: "nav",
           list: true,
           ui: {
@@ -42,18 +42,18 @@ const Global: Collection = {
             },
             defaultItem: {
               href: "home",
-              label: "Home",
+              label: "Page d'accueil",
             },
           },
           fields: [
             {
               type: "string",
-              label: "Link",
+              label: "Lien",
               name: "href",
             },
             {
               type: "string",
-              label: "Label",
+              label: "Intitulé",
               name: "label",
             },
           ],
@@ -62,21 +62,21 @@ const Global: Collection = {
     },
     {
       type: "object",
-      label: "Footer",
+      label: "Pied de page",
       name: "footer",
       fields: [
         {
           type: "string",
-          label: "Color",
+          label: "Couleur",
           name: "color",
           options: [
-            { label: "Default", value: "default" },
-            { label: "Primary", value: "primary" },
+            { label: "Defaut", value: "default" },
+            { label: "Principale", value: "primary" },
           ],
         },
         {
           type: "object",
-          label: "Social Links",
+          label: "Liens réseaux sociaux",
           name: "social",
           fields: [
             {
@@ -112,7 +112,7 @@ const Global: Collection = {
       fields: [
         {
           type: "string",
-          label: "Primary Color",
+          label: "Couleur principale",
           name: "color",
           ui: {
             component: ColorPickerInput,
@@ -121,7 +121,7 @@ const Global: Collection = {
         {
           type: "string",
           name: "font",
-          label: "Font Family",
+          label: "Typographie",
           options: [
             {
               label: "System Sans",
@@ -140,18 +140,18 @@ const Global: Collection = {
         {
           type: "string",
           name: "darkMode",
-          label: "Dark Mode",
+          label: "Préférence d'affichage",
           options: [
             {
               label: "System",
               value: "system",
             },
             {
-              label: "Light",
+              label: "Clair",
               value: "light",
             },
             {
-              label: "Dark",
+              label: "Sombre",
               value: "dark",
             },
           ],

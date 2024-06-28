@@ -1,21 +1,20 @@
 ---
-title: Tina Cloud Starter
+title: Comité de quartier Fontaines Garonne
 blocks:
-  - headline: Welcome to the Tina Starter
-    text: >
-      This project is set up to show you the basics of working with Tina. You're
-      looking at the landing page, which pulls content from
-      `content/pages/home.md`, components from components/blocks, and puts them
-      all together in `pages/[filename].tsx`, all based on a config
-      `tina/config.tsx`.
+  - headline: Comité de quartier Fontaines Garonne
+    text: |
+      Le comité de quartier Fontaines Garonne est une association de loi 1901
+      composée d’habitants du quartier (faisant partie du quartier 19
+      Casselardit / Fontaine-Bayonne / Cartoucherie) qui œuvrent pour le
+      bien-être des habitants dans le quartier.
     actions:
-      - label: Get Started
+      - label: Qui sommes-nous ?
         type: button
-        icon: true
-        link: /posts
-      - label: Read Blog
-        type: link
         icon: false
+        link: /qui-sommes-nous
+      - label: Lire nos actualités
+        type: link
+        icon: true
         link: /posts
     image:
       src: /uploads/unsplash-75EFpyXu3Wg.jpg
@@ -26,36 +25,17 @@ blocks:
     _template: hero
   - items:
       - icon:
-          name: BiCodeBlock
+          name: BiCalendar
           color: red
           style: float
-        title: Amazing Feature
-        text: >-
-          Aliquam blandit felis rhoncus, eleifend ipsum in, condimentum nibh.
-          Praesent ac faucibus risus, eu lacinia enim.
-      - icon:
-          name: BiLike
-          color: primary
-          style: float
-        title: This Is a Feature
-        text: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
-      - icon:
-          name: BiPalette
-          color: green
-          style: float
-        title: Configurable Theme
-        text: >-
-          Edit global theme configuration with Tina. Change your theme's primary
-          color, font, or icon set.
+        title: Agenda
+        text: |
+          Découvrez nos [événements](/agenda) passés et à venir
     color: tint
     _template: features
-  - quote: >-
-      There are only two hard things in Computer Science: cache invalidation and
-      naming things.
-    author: Phil Karlton
+  - quote: Lorem Ipsum dolor sit amet
+    author: Tintin
     color: primary
     _template: testimonial
 ---
-
-
 

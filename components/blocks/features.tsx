@@ -7,6 +7,7 @@ import {
   PageBlocksFeaturesItems,
 } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 export const Feature = ({
   featuresColor,
@@ -37,12 +38,12 @@ export const Feature = ({
         </h3>
       )}
       {data.text && (
-        <p
+        <div
           data-tina-field={tinaField(data, "text")}
           className="text-base opacity-80 leading-relaxed"
         >
-          {data.text}
-        </p>
+          <TinaMarkdown content={data.text} />
+        </div>
       )}
     </div>
   );
@@ -107,12 +108,9 @@ export const featureBlockSchema = {
           name: "title",
         },
         {
-          type: "string",
+          type: "rich-text",
           label: "Text",
           name: "text",
-          ui: {
-            component: "textarea",
-          },
         },
       ],
     },

@@ -1,24 +1,28 @@
 {
   "header": {
     "icon": {
-      "name": "Tina",
+      "name": "BiBuildingHouse",
       "color": "orange",
       "style": "float"
     },
-    "name": "Tina Starter",
+    "name": "Comité de quartier Fontaines Garonne",
     "color": "default",
     "nav": [
       {
         "href": "",
-        "label": "Home"
+        "label": "Accueil"
       },
       {
-        "href": "about",
-        "label": "About"
+        "href": "agenda",
+        "label": "Agenda"
       },
       {
-        "href": "posts",
-        "label": "Blog"
+        "href": "adhesion",
+        "label": "Adhésion"
+      },
+      {
+        "href": "qui-sommes-nous",
+        "label": "À propos"
       }
     ]
   },
@@ -33,6 +37,6 @@
   "theme": {
     "color": "blue",
     "font": "sans",
-    "darkMode": "system"
+    "darkMode": "light"
   }
 }
