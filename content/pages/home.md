@@ -33,7 +33,7 @@ blocks:
           Découvrez nos [événements](/agenda) passés et à venir
     color: tint
     _template: features
-  - quote: Lorem Ipsum dolor sit amet
+  - quote: Lorem Ipsum dolor
     author: Tintin
     color: primary
     _template: testimonial
