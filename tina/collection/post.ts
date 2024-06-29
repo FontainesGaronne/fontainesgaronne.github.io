@@ -20,8 +20,8 @@ const Post: Collection = {
     },
     {
       type: "image",
-      name: "Image",
-      label: "Hero Image",
+      name: "heroImg",
+      label: "Image de présentation",
     },
     {
       type: "rich-text",

@@ -10,7 +10,8 @@ export default function HomePage(
 ) {
   const { data } = useTina(props);
   
-  const nextData = data.page.blocks === null ? {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const nextData: any = data.page.blocks === null ? {
     ...data,
     page: {
       ...data.page,
@@ -22,7 +23,7 @@ export default function HomePage(
   } : data;
 
   return (
-    <Layout rawData={nextData} data={nextData.global as any}>
+    <Layout rawData={nextData} data={nextData.global}>
       <Blocks {...nextData.page} />
     </Layout>
   );
