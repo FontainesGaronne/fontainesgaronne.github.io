@@ -4,6 +4,8 @@ title: Adhésion
 
 ### Soutenez les projets du quartier... adhérez au comité de quartier !
 
+Adhérez c'est bien !
+
 ### ![](/uploads/adhesion.jpg)
 
 L'adhésion annuelle est de 10 euros pour les particuliers, 20 euros pour les associations et commerçants.
