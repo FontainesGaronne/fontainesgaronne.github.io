@@ -28,7 +28,7 @@ const config = defineConfig({
   },
   search: {
     tina: {
-      indexerToken: process.env.TINA_SEARCH_TOKEN!,
+      indexerToken: process.env.NEXT_PUBLIC_TINA_SEARCH_TOKEN!,
       stopwordLanguages: ['fra'],
     },
     indexBatchSize: 100,
