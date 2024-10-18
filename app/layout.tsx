@@ -23,8 +23,12 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Tina",
-  description: "Tina Cloud Starter",
+  title: "Comité de quartier Fontaines Garonne",
+  description: "Comité de quartier Fontaines Garonne - Casselardit - Toulouse rive gauche",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function RootLayout({
