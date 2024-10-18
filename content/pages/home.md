@@ -2,11 +2,11 @@
 title: Comité de quartier Fontaines Garonne
 blocks:
   - headline: Comité de quartier Fontaines Garonne
-    text: |
+    text: >
       Le comité de quartier Fontaines Garonne est une association de loi 1901
       composée d’habitants du quartier (faisant partie du quartier 19
       Casselardit / Fontaine-Bayonne / Cartoucherie) qui œuvrent pour le
-      bien-être des habitants dans le quartier. Hello there
+      bien-être des habitants dans le quartier.
     actions:
       - label: Qui sommes-nous ?
         type: button
@@ -29,7 +29,7 @@ blocks:
           color: red
           style: float
         title: Agenda
-        text: |
+        text: >-
           Découvrez nos [événements](/agenda) passés et à venir
     color: tint
     _template: features
