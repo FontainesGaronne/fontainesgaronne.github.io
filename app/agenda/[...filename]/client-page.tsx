@@ -36,15 +36,16 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
   const { data } = useTina({ ...props });
   const post = data.agenda
 
-  const date = new Date(post.date);
-  let formattedDate = "";
-  if (!isNaN(date.getTime())) {
-    formattedDate = new Intl.DateTimeFormat('fr',{
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }).format(date)
+  const startDate = new Date(post.startDate);
+  let formattedStartDate = "";
+  if (!isNaN(startDate.getTime())) {
+    formattedStartDate = new Intl.DateTimeFormat('fr').format(startDate);
+  }
+
+  const endDate = new Date(post.endDate);
+  let formattedEndDate = '';
+  if (!isNaN(endDate.getTime())) {
+    formattedEndDate = new Intl.DateTimeFormat('fr').format(endDate);
   }
 
   return (
@@ -90,10 +91,9 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
             </>
           )}
           <p
-            data-tina-field={tinaField(post, "date")}
             className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150"
           >
-            {formattedDate}
+            <span data-tina-field={tinaField(post, "startDate")}>{formattedStartDate}</span>{formattedEndDate && " - "}<span data-tina-field={tinaField(post, "endDate")}>{formattedEndDate}</span>
           </p>
         </div>
       </Container>
