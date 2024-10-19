@@ -9,7 +9,7 @@ export default async function Page({
   params: { filename: string[] };
 }) {
   const data = await client.queries.page({
-    relativePath: `${params.filename}.md`,
+    relativePath: `${params.filename}.mdx`,
   });
 
   const nextData: any = data.data.page.blocks === null ? {
