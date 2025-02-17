@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React from "react";
-import NavActive from "@/components/nav/nav-active";
 import { tinaField } from "tinacms/dist/react";
 import Link from "next/link";
 import { useLayout } from "@/components/layout/layout-context";
@@ -19,17 +18,6 @@ const activeItemClasses = {
     "border-b-3 border-orange-200 text-orange-700 dark:text-orange-300 font-medium dark:border-orange-700",
   yellow:
     "border-b-3 border-yellow-300 text-yellow-700 dark:text-yellow-300 font-medium dark:border-yellow-600",
-};
-
-const activeBackgroundClasses = {
-  blue: "text-blue-500",
-  teal: "text-teal-500",
-  green: "text-green-500",
-  red: "text-red-500",
-  pink: "text-pink-500",
-  purple: "text-purple-500",
-  orange: "text-orange-500",
-  yellow: "text-yellow-500",
 };
 
 export default function NavItems({ navs }: { navs: any }) {
@@ -50,14 +38,9 @@ export default function NavItems({ navs }: { navs: any }) {
             <Link
               data-tina-field={tinaField(item, "label")}
               href={`/${item.href}`}
-              className={`relative select-none	text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 py-8 px-4`}
+              className={`relative select-none text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 py-8 px-4`}
             >
               {item.label}
-              {currentPath === `/${item.href}` && (
-                <NavActive
-                  backgroundColor={activeBackgroundClasses[theme.color]}
-                />
-              )}
             </Link>
           </li>
         );
