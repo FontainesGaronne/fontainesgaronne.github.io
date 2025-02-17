@@ -129,7 +129,9 @@ export default function Footer() {
               </a>
             )}
           </div>
-          <RawRenderer parentColor={footer.color} rawData={pageData} />
+          {process.env.NODE_ENV === "development" && (
+            <RawRenderer parentColor={footer.color} rawData={pageData} />
+          )}
         </div>
         <div
           className={cn(
