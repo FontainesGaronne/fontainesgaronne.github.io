@@ -1,7 +1,7 @@
 import type { Collection } from "tinacms";
 
 const Post: Collection = {
-  label: "Blog Posts",
+  label: "Articles",
   name: "post",
   path: "content/posts",
   format: "mdx",

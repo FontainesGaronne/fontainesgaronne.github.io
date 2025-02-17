@@ -40,7 +40,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
 
   const [currentAndFutureEvents, pastEvents] = partition(posts, item => {
     const startDate = new Date(item.node.startDate).setHours(0, 0, 0, 0);
-    const endDate = new Date(item.node.endDate).setHours(0, 0, 0, 0);
+    const endDate = new Date(item.node.endDate ?? item.node.startDate).setHours(0, 0, 0, 0);
     const currentDate = new Date().setHours(0, 0, 0, 0);
     return (endDate ?? startDate) > currentDate
   })
