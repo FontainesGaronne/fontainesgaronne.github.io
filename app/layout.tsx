@@ -55,7 +55,7 @@ export default async function RootLayout({
   const fontVariable = selectFont(global.theme.font);
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body
         className={cn("min-h-screen flex flex-col antialiased", fontVariable)}
       >
