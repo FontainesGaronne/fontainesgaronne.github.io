@@ -11,6 +11,7 @@ import {
 } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 import { partition } from "@/lib/utils";
+import { BiRightArrowAlt } from "react-icons/bi";
 
 const titleColorClasses = {
   blue: "group-hover:text-blue-600 dark:group-hover:text-blue-300",
@@ -105,42 +106,43 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
                   <TinaMarkdown content={post.excerpt} />
                 </div>
                 )}
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 mr-2">
-                    {post?.organizer?.avatar ? (
-                      <Image
-                        width={500}
-                        height={500}
-                        className="size-10 object-cover rounded-full shadow-sm"
-                        src={post?.organizer?.avatar}
-                        alt={post?.organizer?.name ?? ""}
-                      />)
-                    : <div className="size-10 rounded-full bg-gray-300" />
-                    }
-                  </div>
-                  <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
-                    {post?.organizer?.name}
-                  </p>
-                  {formattedStartDate !== "" && (
+                <div className="flex items-center gap-2">
+                  {post?.organizer?.name && (
                     <>
-                      <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">
-                        —
-                      </span>
-                      <p className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
+                      <div className="flex-shrink-0 mr-2">
+                        {post.organizer.avatar ? (
+                          <Image
+                            width={500}
+                            height={500}
+                            className="size-10 object-cover rounded-full shadow-sm"
+                            src={post?.organizer?.avatar}
+                            alt={post?.organizer?.name ?? ""}
+                          />)
+                        : <div className="size-10 rounded-full bg-gray-300" />
+                        }
+                      </div>
+                      <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
+                        {post.organizer.name}
+                      </p>
+                    </>
+                  )}
+                    <div className="flex gap-1">
+                    {formattedStartDate !== "" && (
+                      <p className="text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150 whitespace-nowrap">
                         {formattedStartDate}
                       </p>
-                    </>
-                  )}
-                  {formattedEndDate !== "" && (
-                    <>
-                      <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">
-                        {'->'}
-                      </span>
-                      <p className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
-                        {formattedEndDate}
-                      </p>
-                    </>
-                  )}
+                    )}
+                    {formattedEndDate !== "" && (
+                      <>
+                        <BiRightArrowAlt
+                          className={`size-6 text-gray-200 dark:text-gray-500`}
+                        />
+                        <p className="text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
+                          {formattedEndDate}
+                        </p>
+                      </>
+                    )}
+                    </div>
                 </div>
               </Link>
             );

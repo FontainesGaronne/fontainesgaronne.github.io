@@ -8,6 +8,7 @@ import { tinaField, useTina } from "tinacms/dist/react";
 import { AgendaQuery } from "@/tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { components } from "@/components/mdx-components";
+import { BiRightArrowAlt } from "react-icons/bi";
 
 const titleColorClasses = {
   blue: "from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500",
@@ -91,9 +92,13 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
             </>
           )}
           <p
-            className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150"
+            className="flex text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150"
           >
-            <span data-tina-field={tinaField(post, "startDate")}>{formattedStartDate}</span>{formattedEndDate && " - "}<span data-tina-field={tinaField(post, "endDate")}>{formattedEndDate}</span>
+            <span data-tina-field={tinaField(post, "startDate")}>{formattedStartDate}</span>
+            {formattedEndDate && (
+              <BiRightArrowAlt className={`size-6 text-gray-200 dark:text-gray-500`}/>
+            )}
+            <span data-tina-field={tinaField(post, "endDate")}>{formattedEndDate}</span>
           </p>
         </div>
       </Container>
