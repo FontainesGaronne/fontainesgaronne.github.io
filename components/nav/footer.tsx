@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import { cn } from "../../lib/utils";
-import { Container } from "../layout/container";
+import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/container";
 import Link from "next/link";
-import { Icon } from "../icon";
+import { Icon } from "@/components/icon";
 import { FaFacebookF, FaGithub, FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { useLayout } from "../layout/layout-context";
-import { RawRenderer } from "../raw-renderer";
+import { useLayout } from "@/components/layout/layout-context";
+import { RawRenderer } from "@/components/raw-renderer";
 
 export default function Footer() {
   const { theme, globalSettings, pageData } = useLayout();

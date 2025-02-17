@@ -1,10 +1,10 @@
 import { tinaField } from "tinacms/dist/react";
-import { Page, PageBlocks } from "../../tina/__generated__/types";
-import { Hero } from "./hero";
-import { Content } from "./content";
-import { Features } from "./features";
-import { Testimonial } from "./testimonial";
-import { ContentHTML } from "./contentHTML";
+import { Page, PageBlocks } from "@/tina/__generated__/types";
+import { Hero } from "@/components/blocks/hero";
+import { Content } from "@/components/blocks/content";
+import { Features } from "@/components/blocks/features";
+import { Testimonial } from "@/components/blocks/testimonial";
+import { ContentHTML } from "@/components/blocks/contentHTML";
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
   return (

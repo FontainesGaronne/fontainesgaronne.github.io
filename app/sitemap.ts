@@ -1,4 +1,4 @@
-import client from "../tina/__generated__/client";
+import client from "@/tina/__generated__/client";
 
 export default async function sitemap() {
   const [pages, posts, agenda] = await Promise.all([

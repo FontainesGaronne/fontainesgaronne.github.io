@@ -2,9 +2,9 @@
 import Link from "next/link";
 import * as React from "react";
 import { BiRightArrowAlt } from "react-icons/bi";
-import { PageBlocksHeroActions } from "../../tina/__generated__/types";
+import { PageBlocksHeroActions } from "@/tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import { useLayout } from "../layout/layout-context";
+import { useLayout } from "@/components/layout/layout-context";
 
 const buttonColorClasses = {
   blue: "text-white bg-blue-500 hover:bg-blue-600 bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-400 hover:to-blue-500",

@@ -2,15 +2,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { Fragment } from "react";
-import { useLayout } from "../../components/layout/layout-context";
+import { useLayout } from "@/components/layout/layout-context";
 import { BsArrowRight } from "react-icons/bs";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import {
   AgendaConnectionQuery,
   AgendaConnectionQueryVariables,
-} from "../../tina/__generated__/types";
+} from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
-import { partition } from "../../lib/utils";
+import { partition } from "@/lib/utils";
 
 const titleColorClasses = {
   blue: "group-hover:text-blue-600 dark:group-hover:text-blue-300",

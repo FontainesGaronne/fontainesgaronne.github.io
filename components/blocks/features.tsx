@@ -2,12 +2,12 @@
 import {
   PageBlocksFeatures,
   PageBlocksFeaturesItems,
-} from "../../tina/__generated__/types";
+} from "@/tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import { Icon } from "../icon";
-import { Section } from "../layout/section";
-import { Container } from "../layout/container";
-import { iconSchema } from "../../tina/fields/icon";
+import { Icon } from "@/components/icon";
+import { Section } from "@/components/layout/section";
+import { Container } from "@/components/layout/container";
+import { iconSchema } from "@/tina/fields/icon";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 export const Feature = ({

@@ -1,10 +1,10 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React from "react";
-import NavActive from "./nav-active";
+import NavActive from "@/components/nav/nav-active";
 import { tinaField } from "tinacms/dist/react";
 import Link from "next/link";
-import { useLayout } from "../layout/layout-context";
+import { useLayout } from "@/components/layout/layout-context";
 
 const activeItemClasses = {
   blue: "border-b-3 border-blue-200 text-blue-700 dark:text-blue-300 font-medium dark:border-blue-700",

@@ -2,10 +2,10 @@
 import React from "react";
 
 import type { Template } from "tinacms";
-import { PageBlocksContentHtml } from "../../tina/__generated__/types";
+import { PageBlocksContentHtml } from "@/tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import { Container } from "../layout/container";
-import { Section } from "../layout/section";
+import { Container } from "@/components/layout/container";
+import { Section } from "@/components/layout/section";
 
 export const ContentHTML = ({ data }: { data: PageBlocksContentHtml }) => {
   const headlineColorClasses = {

@@ -1,9 +1,9 @@
 import React from "react";
 import type { Template } from "tinacms";
-import { PageBlocksTestimonial } from "../../tina/__generated__/types";
+import { PageBlocksTestimonial } from "@/tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import { Section } from "../layout/section";
-import { Container } from "../layout/container";
+import { Section } from "@/components/layout/section";
+import { Container } from "@/components/layout/container";
 
 export const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   return (

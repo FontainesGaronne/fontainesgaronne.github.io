@@ -1,7 +1,7 @@
 "use client";
 import * as BoxIcons from "react-icons/bi";
 import React from "react";
-import { useLayout } from "./layout/layout-context";
+import { useLayout } from "@/components/layout/layout-context";
 
 export const IconOptions = {
   Tina: (props) => (

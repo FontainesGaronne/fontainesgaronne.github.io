@@ -2,11 +2,11 @@
 import * as React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Template } from "tinacms";
-import { PageBlocksHero } from "../../tina/__generated__/types";
+import { PageBlocksHero } from "@/tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 import Image from "next/image";
-import { Section } from "../layout/section";
-import { Container } from "../layout/container";
+import { Section } from "@/components/layout/section";
+import { Container } from "@/components/layout/container";
 import { Actions } from "./actions";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
