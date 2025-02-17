@@ -8,8 +8,10 @@ import Image from "next/image";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Actions } from "./actions";
+import { useLayout } from "@/components/layout/layout-context";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
+  const { theme } = useLayout();
   const headlineColorClasses = {
     blue: "from-blue-400 to-blue-600",
     teal: "from-teal-400 to-teal-600",
@@ -46,7 +48,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 className={`bg-clip-text text-transparent bg-gradient-to-r  ${
                   data.color === "primary"
                     ? `from-white to-gray-100`
-                    : headlineColorClasses["blue"]
+                    : headlineColorClasses[theme.color]
                 }`}
               >
                 {data.headline}

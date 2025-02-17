@@ -2,7 +2,7 @@
   "header": {
     "icon": {
       "name": "BiBuildingHouse",
-      "color": "orange",
+      "color": "blue",
       "style": "float"
     },
     "name": "Comité de quartier Fontaines Garonne",
@@ -35,8 +35,8 @@
     }
   },
   "theme": {
-    "color": "blue",
-    "font": "sans",
+    "color": "yellow",
+    "font": "nunito",
     "darkMode": "light"
   }
 }

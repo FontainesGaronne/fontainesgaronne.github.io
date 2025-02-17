@@ -28,7 +28,7 @@ export default function Footer() {
 
   const footerColor = {
     default:
-      "text-gray-800 from-white to-gray-50 dark:from-gray-900 dark:to-gray-1000",
+      "text-gray-800 from-white to-gray-50 dark:from-gray-900 dark:to-gray-1000 from-10%",
     primary: {
       blue: "text-white from-blue-500 to-blue-700",
       teal: "text-white from-teal-500 to-teal-600",
