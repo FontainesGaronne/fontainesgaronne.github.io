@@ -1,10 +1,10 @@
-import "../styles.css";
 import React from "react";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Inter as FontSans, Lato, Nunito } from "next/font/google";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 import { Metadata } from "next";
-import client from "../tina/__generated__/client";
+import client from "@/tina/__generated__/client";
+
+import "@/styles.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -55,18 +55,12 @@ export default async function RootLayout({
   const fontVariable = selectFont(global.theme.font);
 
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr">
       <body
+        suppressHydrationWarning
         className={cn("min-h-screen flex flex-col antialiased", fontVariable)}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-          forcedTheme={global.theme.darkMode}
-        >
           {children}
-        </ThemeProvider>
       </body>
     </html>
   );
