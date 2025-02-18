@@ -54,7 +54,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
       <Container width="small" className={`flex-1 pb-2`} size="large">
         <h2
           data-tina-field={tinaField(post, "title")}
-          className={`w-full relative	mb-8 text-6xl font-extrabold tracking-normal text-center title-font`}
+          className={`w-full relative	mb-8 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-normal text-center title-font`}
         >
           <span
             className={`bg-clip-text text-transparent bg-gradient-to-r ${

@@ -24,27 +24,29 @@ export default function NavItems({ navs }: { navs: any }) {
   const currentPath = usePathname();
   const { theme } = useLayout();
   return (
-    <ul className="flex gap-6 sm:gap-8 lg:gap-10 tracking-[.002em] -mx-4">
-      {navs.map((item) => {
-        return (
-          <li
-            key={item.href}
-            className={
-              currentPath === `/${item.href}`
-                ? activeItemClasses[theme.color]
-                : ""
-            }
-          >
-            <Link
-              data-tina-field={tinaField(item, "label")}
-              href={`/${item.href}`}
-              className={`relative select-none text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 py-8 px-4`}
+    <nav role="navigation">  
+      <ul className="flex flex-wrap gap-6 sm:gap-8 lg:gap-10 tracking-[.002em] -mx-4">
+        {navs.map((item) => {
+          return (
+            <li
+              key={item.href}
+              className={
+                currentPath === `/${item.href}`
+                  ? activeItemClasses[theme.color]
+                  : ""
+              }
             >
-              {item.label}
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+              <Link
+                data-tina-field={tinaField(item, "label")}
+                href={`/${item.href}`}
+                className={`relative select-none text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 p-4 lg:py-8`}
+              >
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }

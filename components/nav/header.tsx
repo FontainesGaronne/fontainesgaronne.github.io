@@ -34,15 +34,15 @@ export default function Header() {
       : headerColor.default;
 
   return (
-    <div
+    <header
       className={`relative overflow-hidden bg-gradient-to-b ${headerColorCss}`}
     >
       <Container size="custom" className="py-0 relative z-10 max-w-8xl">
-        <div className="flex items-center justify-between gap-6">
-          <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
+        <div className="flex items-center justify-between flex-wrap gap-6">
+          <p className="select-none text-lg font-bold tracking-tight xs:my-4 transition duration-150 ease-out transform">
             <Link
               href="/"
-              className="flex gap-1 items-center whitespace-nowrap tracking-[.002em]"
+              className="flex gap-1 items-center tracking-[.002em]"
             >
               <Icon
                 tinaField={tinaField(header, "icon")}
@@ -52,12 +52,13 @@ export default function Header() {
                   color: header.icon.color,
                   style: header.icon.style,
                 }}
+                aria-hidden
               />{" "}
               <span data-tina-field={tinaField(header, "name")}>
                 {header.name}
               </span>
             </Link>
-          </h4>
+          </p>
           <NavItems navs={header.nav} />
         </div>
         <div
@@ -70,6 +71,6 @@ export default function Header() {
           )}
         />
       </Container>
-    </div>
+    </header>
   );
 }

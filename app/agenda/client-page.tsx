@@ -89,7 +89,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
               <Link
                 key={post._sys.filename}
                 href={`/agenda/` + post._sys.filename}
-                className="group block px-6 sm:px-8 md:px-10 py-10 mb-8 last:mb-0 bg-white dark:bg-gray-1000 rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 dark:hover:bg-gray-800"
+                className="group block px-6 sm:px-8 md:px-10 py-10 mb-8 last:mb-0 bg-white dark:bg-gray-1000 rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 dark:hover:bg-gray-800 focus:shadow-md focus:bg-slate-50 dark:focus:bg-gray-800"
               >
                 <h3
                   className={`text-gray-700 dark:text-white text-xl lg:text-2xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${
@@ -106,7 +106,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
                   <TinaMarkdown content={post.excerpt} />
                 </div>
                 )}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center flex-wrap gap-2">
                   {post?.organizer?.name && (
                     <>
                       <div className="flex-shrink-0 mr-2">

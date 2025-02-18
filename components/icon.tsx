@@ -80,6 +80,7 @@ export const Icon = ({
   parentColor = "",
   className = "",
   tinaField = "",
+  ...props
 }) => {
   const { theme } = useLayout();
 
@@ -108,7 +109,7 @@ export const Icon = ({
         data-tina-field={tinaField}
         className={`relative z-10 inline-flex items-center justify-center flex-shrink-0 ${iconSizeClasses} rounded-full ${iconColorClass[iconColor].circle} ${className}`}
       >
-        <IconSVG className="w-2/3 h-2/3" />
+        <IconSVG className="w-2/3 h-2/3" {...props} />
       </div>
     );
   } else {
@@ -123,6 +124,7 @@ export const Icon = ({
       <IconSVG
         data-tina-field={tinaField}
         className={`${iconSizeClasses} ${iconColorClasses} ${className}`}
+        {...props}
       />
     );
   }
