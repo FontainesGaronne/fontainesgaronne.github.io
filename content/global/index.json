@@ -37,6 +37,6 @@
   "theme": {
     "color": "yellow",
     "font": "nunito",
-    "darkMode": "light"
+    "darkMode": "system"
   }
 }
