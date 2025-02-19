@@ -9,10 +9,6 @@
     "color": "default",
     "nav": [
       {
-        "href": "",
-        "label": "Accueil"
-      },
-      {
         "href": "agenda",
         "label": "Agenda"
       },
