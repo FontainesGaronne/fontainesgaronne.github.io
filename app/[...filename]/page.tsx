@@ -34,10 +34,20 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-  const pages = await client.queries.pageConnection();
-  const paths = pages.data?.pageConnection.edges.map((edge) => ({
-    filename: edge.node._sys.breadcrumbs,
-  }));
+  let pages = await client.queries.pageConnection();
+  const allPages = pages;
 
-  return paths || [];
+  while (pages.data.pageConnection.pageInfo.hasNextPage) {
+    pages = await client.queries.pageConnection({
+      after: pages.data.pageConnection.pageInfo.endCursor,
+    });
+    allPages.data.pageConnection.edges.push(...pages.data.pageConnection.edges);
+  }
+
+  const params = allPages.data?.pageConnection.edges.map((edge) => ({
+    filename: edge.node._sys.breadcrumbs,
+  })) || [];
+
+  // exclude the home page
+  return params.filter(p => !p.filename.every(x => x === "home"));
 }
