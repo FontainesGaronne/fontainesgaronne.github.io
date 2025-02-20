@@ -35,7 +35,6 @@ export default function PostClientPage(props: ClientPostProps) {
   const { theme } = useLayout();
   const { data } = useTina({ ...props });
   const post = data.post;
-  console.log(post)
 
   const date = new Date(post.date);
   let formattedDate = "";
