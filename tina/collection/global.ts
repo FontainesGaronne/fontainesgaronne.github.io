@@ -111,6 +111,7 @@ const Global: Collection = {
           label: "Couleur principale",
           name: "color",
           ui: {
+            // @ts-ignore next-line
             component: ColorPickerInput,
           },
         },
