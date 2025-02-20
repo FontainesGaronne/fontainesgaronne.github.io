@@ -4,7 +4,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
 import Link from "next/link";
-import { Icon } from "@/components/icon";
 import { FaFacebookF, FaGithub, FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { useLayout } from "@/components/layout/layout-context";
