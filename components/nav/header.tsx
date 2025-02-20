@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { cn } from "@/lib/utils";
 import { tinaField } from "tinacms/dist/react";
-import { Icon } from "@/components/icon";
 import NavItems from "@/components/nav/nav-items";
 import { useLayout } from "@/components/layout/layout-context";
 
@@ -42,18 +42,14 @@ export default function Header() {
           <p className="select-none text-lg font-bold tracking-tight xs:my-4 transition duration-150 ease-out transform">
             <Link
               href="/"
-              className="flex gap-1 items-center tracking-[.002em]"
+              className="flex gap-2 items-center tracking-[.002em]"
             >
-              <Icon
-                tinaField={tinaField(header, "icon")}
-                parentColor={header.color}
-                data={{
-                  name: header.icon.name,
-                  color: header.icon.color,
-                  style: header.icon.style,
-                }}
-                aria-hidden
-              />{" "}
+              <Image
+                src="/logo.png"
+                alt=""
+                width={80}
+                height={80}
+              />
               <span data-tina-field={tinaField(header, "name")}>
                 {header.name}
               </span>

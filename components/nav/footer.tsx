@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
 import Link from "next/link";
@@ -54,17 +55,11 @@ export default function Footer() {
             href="/"
             className="group mx-2 flex items-center font-bold tracking-tight text-gray-400 dark:text-gray-300 opacity-50 hover:opacity-100 transition duration-150 ease-out whitespace-nowrap"
           >
-            <Icon
-              parentColor={footer.color}
-              data={{
-                name: globalSettings?.header.icon.name,
-                color:
-                  theme.color === "primary"
-                    ? "primary"
-                    : globalSettings?.header.icon.color,
-                style: globalSettings?.header.icon.style,
-              }}
-              className="inline-block h-10 w-auto group-hover:text-orange-500"
+            <Image
+              src="/logo.png"
+              width={80}
+              height={80}
+              alt={globalSettings?.header.name}
             />
           </Link>
           <div className="flex gap-4">
