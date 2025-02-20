@@ -101,32 +101,32 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
             <span data-tina-field={tinaField(post, "endDate")}>{formattedEndDate}</span>
           </p>
         </div>
-      </Container>
-      {post.heroImg && (
-        <div className="px-4 w-full">
-          <div
-            data-tina-field={tinaField(post, "heroImg")}
-            className="relative max-w-4xl lg:max-w-5xl mx-auto"
-          >
-            <Image
-              src={post.heroImg}
-              alt={post.title}
-              className="absolute block rounded-lg w-full h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
-              aria-hidden="true"
-              width={500}
-              height={500}
-            />
-            <Image
-              src={post.heroImg}
-              alt={post.title}
-              width={500}
-              height={500}
-              className="relative z-10 mb-14 block rounded-lg w-full h-auto opacity-100"
-            />
+
+        {post.heroImg && (
+          <div className="px-4 w-full">
+            <div
+              data-tina-field={tinaField(post, "heroImg")}
+              className="relative max-w-4xl lg:max-w-5xl mx-auto"
+            >
+              <Image
+                src={post.heroImg}
+                alt={post.title}
+                className="absolute block rounded-lg w-full h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
+                aria-hidden="true"
+                width={500}
+                height={500}
+              />
+              <Image
+                src={post.heroImg}
+                alt={post.title}
+                width={500}
+                height={500}
+                className="relative z-10 mb-14 block rounded-lg w-full h-auto opacity-100"
+              />
+            </div>
           </div>
-        </div>
-      )}
-      <Container className={`flex-1 pt-4`} width="small" size="large">
+        )}
+
         <div
           data-tina-field={tinaField(post, "_body")}
           className="prose dark:prose-dark w-full max-w-none"
