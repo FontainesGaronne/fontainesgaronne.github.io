@@ -1,5 +1,5 @@
 ---
 name: Comité Éco-quartier Cartoucherie
-avatar: /uploads/llama-6.avif
+avatar: /uploads/ecoquartier-cartoucherie.png
 ---
 
