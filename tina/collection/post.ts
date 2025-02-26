@@ -39,9 +39,9 @@ const Post: Collection = {
       label: "Date de publication",
       name: "date",
       ui: {
-        dateFormat: "MMMM DD YYYY",
-        timeFormat: "hh:mm A",
+        dateFormat: "DD/MM/YYYY",
       },
+      required: true, 
     },
     {
       type: "rich-text",
