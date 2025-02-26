@@ -39,8 +39,7 @@ const Agenda: Collection = {
       label: "Date de publication",
       name: "date",
       ui: {
-        dateFormat: "DD MMMM YYYY",
-        timeFormat: "hh:mm A",
+        dateFormat: "DD/MM/YYYY",
       },
     },
     {
@@ -48,18 +47,18 @@ const Agenda: Collection = {
       label: "Date de début",
       name: "startDate",
       ui: {
-        dateFormat: "DD MMMM YYYY",
-        timeFormat: "hh:mm A",
+        dateFormat: "DD/MM/YYYY",
       },
+      required: true,
     },
     {
       type: "datetime",
       label: "Date de fin",
       name: "endDate",
       ui: {
-        dateFormat: "DD MMMM YYYY",
-        timeFormat: "hh:mm A",
+        dateFormat: "DD/MM/YYYY",
       },
+      required: true,
     },
     {
       type: "rich-text",
