@@ -20,9 +20,20 @@ export default async function PostPage({
 }
 
 export async function generateStaticParams() {
-  const posts = await client.queries.agendaConnection();
-  const paths = posts.data?.agendaConnection.edges.map((edge) => ({
-    filename: edge.node._sys.breadcrumbs,
-  }));
-  return paths || [];
+  let posts = await client.queries.agendaConnection();
+  const allPosts = posts;
+
+  while (posts.data?.agendaConnection.pageInfo.hasNextPage) {
+    posts = await client.queries.agendaConnection({
+      after: posts.data.agendaConnection.pageInfo.endCursor,
+    });
+    allPosts.data.agendaConnection.edges.push(...posts.data.agendaConnection.edges);
+  }
+
+  const params =
+    allPosts.data?.agendaConnection.edges.map((edge) => ({
+      filename: edge.node._sys.breadcrumbs,
+    })) || [];
+
+  return params;
 }

@@ -4,7 +4,7 @@ import client from "@/tina/__generated__/client";
 import AgendaClientPage from "./client-page";
 
 export default async function PostsPage() {
-  const posts = await client.queries.agendaConnection();
+  const posts = await client.queries.agendaConnection({ sort: 'endDate', last: -1 });
 
   if (!posts) {
     return null;
