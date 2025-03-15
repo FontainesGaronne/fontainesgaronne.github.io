@@ -1,13 +1,12 @@
 {
   "header": {
-    "icon": {
-      "name": "BiBuildingHouse",
-      "color": "blue",
-      "style": "float"
-    },
     "name": "Comité de Quartier Fontaines Garonne",
     "color": "default",
     "nav": [
+      {
+        "href": "/posts",
+        "label": "Actualités"
+      },
       {
         "href": "agenda",
         "label": "Agenda"
