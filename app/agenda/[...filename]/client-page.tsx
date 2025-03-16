@@ -8,7 +8,6 @@ import { tinaField, useTina } from "tinacms/dist/react";
 import { AgendaQuery } from "@/tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { components } from "@/components/mdx-components";
-import { BiRightArrowAlt } from "react-icons/bi";
 import EventDates from "@/components/eventDates";
 
 const titleColorClasses = {
