@@ -4,7 +4,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Template } from "tinacms";
 import { PageBlocksHero } from "@/tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import Image from "next/image";
+import Map from '@/components/map/map';
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Actions } from "./actions";
@@ -27,85 +27,75 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     <Section color={data.color}>
       <Container
         size="large"
-        className="grid grid-cols-1 md:grid-cols-5 gap-14 items-start justify-center"
       >
-        <div className="row-start-2 md:row-start-1 md:col-span-5 text-center md:text-left">
-          {data.tagline && (
-            <p
-              data-tina-field={tinaField(data, "tagline")}
-              className="relative inline-block px-3 py-1 mb-8 text-md font-bold tracking-wide title-font z-20"
+        {data.headline && (
+          <h1
+            data-tina-field={tinaField(data, "headline")}
+            className={`w-full relative mb-10 text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-normal leading-tight title-font`}
+          >
+            <span
+              className={`bg-clip-text text-transparent bg-gradient-to-r  ${
+                data.color === "primary"
+                  ? `from-white to-gray-100`
+                  : headlineColorClasses[theme.color]
+              }`}
             >
-              {data.tagline}
-              <span className="absolute w-full h-full left-0 top-0 rounded-full -z-1 bg-current opacity-7"></span>
-            </p>
-          )}
-          {data.headline && (
-            <h1
-              data-tina-field={tinaField(data, "headline")}
-              className={`w-full relative mb-10 text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-normal leading-tight title-font`}
-            >
-              <span
-                className={`bg-clip-text text-transparent bg-gradient-to-r  ${
+              {data.headline}
+            </span>
+          </h1>
+        )}
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col">
+            {data.text && (
+              <div
+                data-tina-field={tinaField(data, "text")}
+                className={`prose prose-lg mb-10 ${
                   data.color === "primary"
-                    ? `from-white to-gray-100`
-                    : headlineColorClasses[theme.color]
+                    ? `prose-primary`
+                    : `dark:prose-dark`
                 }`}
               >
-                {data.headline}
-              </span>
-            </h1>
-          )}
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex flex-col md:w-3/5">
-              {data.text && (
-                <div
-                  data-tina-field={tinaField(data, "text")}
-                  className={`prose prose-lg mx-auto md:mx-0 mb-10 ${
-                    data.color === "primary"
-                      ? `prose-primary`
-                      : `dark:prose-dark`
-                  }`}
-                >
-                  <TinaMarkdown content={data.text} />
-                </div>
-              )}
-            </div>
-            {data.image && (
-              <div
-                data-tina-field={tinaField(data.image, "src")}
-                className="relative flex-shrink-0 md:w-2/5 flex justify-center"
-              >
-                <Image
-                  className="w-full h-auto max-w-full rounded-lg"
-                  style={{ objectFit: "cover" }}
-                  alt={data.image.alt}
-                  src={data.image.src}
-                  width={500}
-                  height={500}
-                />
+                <TinaMarkdown content={data.text} />
               </div>
             )}
           </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-6">
           {data.text2 && (
-            <div
-              data-tina-field={tinaField(data, "text2")}
-              className={`prose prose-lg mx-auto md:mx-0 mb-10 ${
-                data.color === "primary" ? `prose-primary` : `dark:prose-dark`
-              }`}
-            >
-              <TinaMarkdown content={data.text2} />
+            <div className="flex flex-col md:w-1/2">
+              <div
+                data-tina-field={tinaField(data, "text2")}
+                className={`prose prose-lg mb-10 ${
+                  data.color === "primary" ? `prose-primary` : `dark:prose-dark`
+                }`}
+              >
+                <TinaMarkdown content={data.text2} />
+              </div>
             </div>
           )}
-          {data.actions && (
-            <div className="mt-10">
-              <Actions
-                className="justify-center md:justify-start py-2"
-                parentColor={data.color}
-                actions={data.actions}
-              />
+          {data.map.displayMap && (
+          <div
+            data-tina-field={tinaField(data.map, "displayMap")}
+            className="flex flex-col flex-grow prose prose-lg dark:prose-dark mb-10"
+          >
+            {data.map.titleMap && (
+              <h2 data-tina-field={tinaField(data.map, "titleMap")}>{data.map.titleMap}</h2>
+              )}
+            <div className="overflow-hidden rounded-lg flex-grow h-80 md:h-full">
+              <Map />
             </div>
+          </div>
           )}
         </div>
+        {data.actions && (
+          <div className="mt-10">
+            <Actions
+              className="justify-center md:justify-start py-2"
+              parentColor={data.color}
+              actions={data.actions}
+            />
+          </div>
+        )}
       </Container>
     </Section>
   );
@@ -125,11 +115,6 @@ export const heroBlockSchema: Template = {
   fields: [
     {
       type: "string",
-      label: "Tags",
-      name: "tagline",
-    },
-    {
-      type: "string",
       label: "Titre de l'encart",
       name: "headline",
     },
@@ -140,7 +125,7 @@ export const heroBlockSchema: Template = {
     },
     {
       type: "rich-text",
-      label: "Text-2",
+      label: "Contenu secondaire",
       name: "text2",
     },
     {
@@ -186,18 +171,17 @@ export const heroBlockSchema: Template = {
     },
     {
       type: "object",
-      label: "Image",
-      name: "image",
+      label: "Carte",
+      name: "map",
       fields: [
         {
-          name: "src",
-          label: "Source de l'image",
-          type: "image",
+          type: "boolean",
+          label: "Afficher la carte du quartier ?",
+          name: "displayMap",
         },
         {
-          name: "alt",
-          label: "Texte alternatif de l'image",
-          description: "Texte restitué aux utilisateurs ne pouvant voir l'image",
+          name: "titleMap",
+          label: "Titre de l'encart",
           type: "string",
         },
       ],
