@@ -37,7 +37,7 @@ export default function Header() {
     <header
       className={`relative overflow-hidden bg-gradient-to-b ${headerColorCss}`}
     >
-      <Container size="custom" className="py-0 relative z-10 max-w-8xl">
+      <Container size="custom" className="py-0 relative z-10 max-w-7xl">
         <div className="flex items-center justify-between flex-wrap gap-6">
           <p className="select-none text-lg font-bold tracking-tight xs:my-4 transition duration-150 ease-out transform">
             <Link

@@ -19,14 +19,14 @@ export const Container = ({
     small: "max-w-4xl",
     medium: "max-w-5xl",
     large: "max-w-7xl",
-    custom: "",
+    custom: "max-w-7xl",
   };
 
   return (
     <div
       className={cn(
         widthClass[width],
-        `mx-auto px-6 sm:px-8`,
+        `mx-auto px-6 sm:px-0`,
         verticalPadding[size],
         className
       )}
