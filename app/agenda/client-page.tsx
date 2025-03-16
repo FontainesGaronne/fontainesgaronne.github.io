@@ -82,15 +82,17 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
                   href={`/agenda/` + post._sys.filename}
                   className="relative overflow-hidden flex flex-col group mb-8 last:mb-0 bg-white dark:bg-gray-1000 rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 dark:hover:bg-gray-800 focus:shadow-md focus:bg-slate-50 dark:focus:bg-gray-800"
                 >
-                  <div className="flex flex-grow">
+                  <div className="flex flex-col lg:flex-row flex-grow">
                     {post.heroImg && (
-                      <Image
-                        src={post.heroImg}
-                        alt=""
-                        className="object-cover"
-                        width={300}
-                        height={300}
-                      />
+                      <div className="flex justify-center items-center object-cover aspect-square bg-gray-100 max-h-72 lg:max-h-auto">
+                        <Image
+                          src={post.heroImg}
+                          className="object-cover h-full"
+                          alt=""
+                          width={400}
+                          height={400}
+                        />
+                      </div>
                     )}
                     <div className="px-6 sm:px-8 md:px-10 py-10 flex-grow">
                       <h3
