@@ -84,7 +84,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
                 >
                   <div className="flex flex-col lg:flex-row flex-grow">
                     {post.heroImg && (
-                      <div className="flex justify-center items-center object-cover aspect-square bg-gray-100 max-h-72 lg:max-h-auto">
+                      <div className="flex justify-center items-center object-cover bg-gray-100 max-h-72 lg:max-h-auto">
                         <Image
                           src={post.heroImg}
                           className="object-cover h-full"
