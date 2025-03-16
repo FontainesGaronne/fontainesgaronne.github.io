@@ -4,6 +4,7 @@ import React from "react";
 import { tinaField } from "tinacms/dist/react";
 import Link from "next/link";
 import { useLayout } from "@/components/layout/layout-context";
+import { cn } from "@/lib/utils";
 
 const activeItemClasses = {
   blue: "border-b-3 border-blue-200 text-blue-700 dark:text-blue-300 font-medium dark:border-blue-700",
@@ -30,11 +31,7 @@ export default function NavItems({ navs }: { navs: any }) {
           return (
             <li
               key={item.href}
-              className={
-                currentPath === `/${item.href}`
-                  ? activeItemClasses[theme.color]
-                  : ""
-              }
+              className={cn(currentPath.startsWith(`/${item.href}`) && activeItemClasses[theme.color])}
             >
               <Link
                 data-tina-field={tinaField(item, "label")}
