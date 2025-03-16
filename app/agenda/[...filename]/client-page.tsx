@@ -9,6 +9,7 @@ import { AgendaQuery } from "@/tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { components } from "@/components/mdx-components";
 import { BiRightArrowAlt } from "react-icons/bi";
+import EventDates from "@/components/eventDates";
 
 const titleColorClasses = {
   blue: "from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500",
@@ -37,18 +38,6 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
   const { data } = useTina({ ...props });
   const post = data.agenda
 
-  const startDate = new Date(post.startDate);
-  let formattedStartDate = "";
-  if (!isNaN(startDate.getTime())) {
-    formattedStartDate = new Intl.DateTimeFormat('fr').format(startDate);
-  }
-
-  const endDate = new Date(post.endDate);
-  let formattedEndDate = '';
-  if (!isNaN(endDate.getTime())) {
-    formattedEndDate = new Intl.DateTimeFormat('fr').format(endDate);
-  }
-
   return (
     <Section className="flex-1">
       <Container width="small" className={`flex-1 pb-2`} size="large">
@@ -66,10 +55,10 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
         </h2>
         <div
           data-tina-field={tinaField(post, "organizer")}
-          className="flex items-center justify-center mb-16"
+          className="mb-16 border rounded-lg overflow-hidden"
         >
           {post.organizer && (
-            <p className="flex items-center justify-center">
+            <p className="flex items-center gap-2 px-4 py-2">
               <span>Organisé par : </span>
                 <Image
                   data-tina-field={tinaField(post.organizer, "avatar")}
@@ -85,21 +74,16 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
               >
                 {post.organizer.name}
               </span>
-              <span className="font-bold text-gray-200 dark:text-gray-500 mx-2" aria-hidden>
-                —
-              </span>
             </p>
           )}
-          <p
-            className="flex text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150"
-          >
-            <span data-tina-field={tinaField(post, "startDate")}>{formattedStartDate}</span>
-            {formattedEndDate && (
-              <BiRightArrowAlt className={`size-6 text-gray-200 dark:text-gray-500`}/>
-            )}
-            <span data-tina-field={tinaField(post, "endDate")}>{formattedEndDate}</span>
-          </p>
+          <EventDates
+            startDate={post.startDate}
+            endDate={post.endDate}
+            tinaFieldStartDate={tinaField(post, "startDate")}
+            tinaFieldEndDate={tinaField(post, "endDate")}
+          />
         </div>
+
         
         <div className="md:flex gap-4">
           {post.heroImg && (

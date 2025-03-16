@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { Fragment } from "react";
 import { useLayout } from "@/components/layout/layout-context";
 import { components } from "@/components/mdx-components";
+import EventDates from "@/components/eventDates";
 import { BsArrowRight } from "react-icons/bs";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import {
@@ -12,7 +13,6 @@ import {
 } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 import { partition } from "@/lib/utils";
-import { BiRightArrowAlt } from "react-icons/bi";
 
 const titleColorClasses = {
   blue: "group-hover:text-blue-600 dark:group-hover:text-blue-300",
@@ -70,78 +70,53 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
     <div>
       {nextData.map(section => (
         <Fragment key={section.title}>
-        <h2 className={`text-gray-700 dark:text-white text-3xl lg:text-4xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${titleColorClasses[theme.color]}`}>
-          {section.title}
-        </h2>
-        <div className="md:grid gap-6 grid-cols-2 py-10">
-          {section.data.map((postData) => {
-            const post = postData.node;
-            const startDate = new Date(post.startDate);
-            const endDate = new Date(post.endDate)
-            let formattedStartDate = "";
-            if (!isNaN(startDate.getTime())) {
-              formattedStartDate = new Intl.DateTimeFormat('fr').format(startDate);
-            }
-            let formattedEndDate = '';
-            if (!isNaN(endDate.getTime())) {
-              formattedEndDate = new Intl.DateTimeFormat('fr').format(endDate);
-            }
-            return (
-              <Link
-                key={post._sys.filename}
-                href={`/agenda/` + post._sys.filename}
-                className="group flex block mb-8 last:mb-0 bg-white dark:bg-gray-1000 rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 dark:hover:bg-gray-800 focus:shadow-md focus:bg-slate-50 dark:focus:bg-gray-800"
-              >
-                {post.heroImg && (
-                  <Image
-                    src={post.heroImg}
-                    alt=""
-                    className="object-cover"
-                    width={300}
-                    height={300}
-                  />
-                )}
-                <div className="px-6 sm:px-8 md:px-10 py-10">
-                  <h3
-                    className={`text-gray-700 dark:text-white text-xl lg:text-2xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${
-                      titleColorClasses[theme.color]
-                    }`}
-                  >
-                    {post.title}{" "}
-                    <span className="inline-block opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-                      <BsArrowRight className="inline-block h-8 -mt-1 ml-1 w-auto opacity-70" aria-hidden />
-                    </span>
-                  </h3>
-                  {post.excerpt && (
-                    <div className="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
-                      <TinaMarkdown content={post.excerpt} components={components}/>
-                    </div>
-                  )}
-                  <div className="flex items-center flex-wrap gap-2">
-                    <p className="flex gap-1">
-                      {formattedStartDate !== "" && (
-                        <span className="text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150 whitespace-nowrap">
-                          {formattedStartDate}
+          <h2 className={`text-gray-700 dark:text-white text-3xl lg:text-4xl font-semibold title-font ${titleColorClasses[theme.color]}`}>
+            {section.title}
+          </h2>
+          <div className="md:grid gap-6 grid-cols-2 mb-4 py-10">
+            {section.data.map((postData) => {
+              const post = postData.node;
+              return (
+                <Link
+                  key={post._sys.filename}
+                  href={`/agenda/` + post._sys.filename}
+                  className="relative overflow-hidden flex flex-col group mb-8 last:mb-0 bg-white dark:bg-gray-1000 rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 dark:hover:bg-gray-800 focus:shadow-md focus:bg-slate-50 dark:focus:bg-gray-800"
+                >
+                  <div className="flex flex-grow">
+                    {post.heroImg && (
+                      <Image
+                        src={post.heroImg}
+                        alt=""
+                        className="object-cover"
+                        width={300}
+                        height={300}
+                      />
+                    )}
+                    <div className="px-6 sm:px-8 md:px-10 py-10 flex-grow">
+                      <h3
+                        className={`text-gray-700 dark:text-white text-xl lg:text-2xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${
+                          titleColorClasses[theme.color]
+                        }`}
+                      >
+                        {post.title}{" "}
+                        <span className="inline-block opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
+                          <BsArrowRight className="inline-block h-8 -mt-1 ml-1 w-auto opacity-70" aria-hidden />
                         </span>
+                      </h3>
+                      {post.excerpt && (
+                        <div className="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
+                          <TinaMarkdown content={post.excerpt} components={components}/>
+                        </div>
                       )}
-                      {formattedEndDate !== "" && (formattedStartDate !== formattedEndDate) && (
-                        <>
-                          <BiRightArrowAlt
-                            className="size-6 text-gray-200 dark:text-gray-500"
-                            aria-hidden
-                          />
-                          <span className="text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
-                            {formattedEndDate}
-                          </span>
-                        </>
-                      )}
-                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+                  <div className="flex items-center flex-wrap gap-2">
+                    <EventDates startDate={post.startDate} endDate={post.endDate} />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
       </Fragment>
       ))}
     </div>
