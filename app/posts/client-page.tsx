@@ -33,6 +33,15 @@ export default function PostsClientPage(props: ClientPostProps) {
 
   return (
     <>
+      <h1
+        className={`relative mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-normal text-center title-font`}
+      >
+        <span
+          className={`bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500 dark:from-yellow-300 dark:to-yellow-500`}
+        >
+          Les actualités du quartier
+        </span>
+      </h1>
       {data?.postConnection.edges.map((postData) => {
         const post = postData.node;
         const date = new Date(post.date);

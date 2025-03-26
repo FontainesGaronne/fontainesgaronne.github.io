@@ -68,6 +68,15 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
 
   return (
     <div>
+      <h1
+        className={`relative mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-normal text-center title-font`}
+      >
+        <span
+          className={`bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500 dark:from-yellow-300 dark:to-yellow-500`}
+        >
+          Les événements du quartier
+        </span>
+      </h1>
       {nextData.map(section => (
         <Fragment key={section.title}>
           <h2 className={`text-gray-700 dark:text-white text-3xl lg:text-4xl font-semibold title-font ${titleColorClasses[theme.color]}`}>
@@ -95,7 +104,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
                       </div>
                     )}
                     <div className="px-6 sm:px-8 md:px-10 py-10 flex-grow">
-                      <h3
+                      <h2
                         className={`text-gray-700 dark:text-white text-xl lg:text-2xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${
                           titleColorClasses[theme.color]
                         }`}
@@ -104,7 +113,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
                         <span className="inline-block opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
                           <BsArrowRight className="inline-block h-8 -mt-1 ml-1 w-auto opacity-70" aria-hidden />
                         </span>
-                      </h3>
+                      </h2>
                       {post.excerpt && (
                         <div className="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
                           <TinaMarkdown content={post.excerpt} components={components}/>

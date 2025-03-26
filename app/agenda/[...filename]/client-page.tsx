@@ -40,7 +40,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
   return (
     <Section className="flex-1">
       <Container width="small" className={`flex-1 pb-2`} size="large">
-        <h2
+        <h1
           data-tina-field={tinaField(post, "title")}
           className={`w-full relative	mb-8 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-normal text-center title-font`}
         >
@@ -51,7 +51,7 @@ export default function AgendaClientPage(props: ClientAgendaProps) {
           >
             {post.title}
           </span>
-        </h2>
+        </h1>
         <div
           data-tina-field={tinaField(post, "organizer")}
           className="mb-16 border rounded-lg overflow-hidden"
