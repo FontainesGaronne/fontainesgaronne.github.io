@@ -3,6 +3,8 @@ import client from "@/tina/__generated__/client";
 import ClientPage from "./client-page";
 import Layout from "@/components/layout/layout";
 
+export const revalidate = 300;
+
 export default async function Page({
   params,
 }: {

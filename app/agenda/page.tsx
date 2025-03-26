@@ -3,6 +3,8 @@ import Layout from "@/components/layout/layout";
 import client from "@/tina/__generated__/client";
 import AgendaClientPage from "./client-page";
 
+export const revalidate = 300;
+
 export default async function PostsPage() {
   const posts = await client.queries.agendaConnection({ sort: 'endDate', last: -1 });
 
