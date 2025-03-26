@@ -61,7 +61,10 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
+      - name: "Setup Pages #1"
+        run: |
+          touch public/.nojekyll
+      - name: "Setup Pages #2"
         uses: actions/configure-pages@v5
         with:
           # Automatically inject basePath in your Next.js configuration file and disable
@@ -81,10 +84,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Build TinaCMS
-        run: ${{ steps.detect-package-manager.outputs.runner }} tinacms build
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: ${{ steps.detect-package-manager.outputs.runner }} build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
