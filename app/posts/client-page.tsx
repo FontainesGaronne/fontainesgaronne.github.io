@@ -58,46 +58,61 @@ export default function PostsClientPage(props: ClientPostProps) {
           <Link
             key={post.id}
             href={`/posts/` + post._sys.breadcrumbs.join("/")}
-                className="group block px-6 sm:px-8 md:px-10 py-10 mb-8 last:mb-0 bg-white dark:bg-gray-1000 rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 dark:hover:bg-gray-800"
+            className="relative group block mb-8 last:mb-0 bg-white dark:bg-gray-1000 rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 dark:hover:bg-gray-800"
           >
-            <h3
-              className={`text-gray-700 dark:text-white text-3xl lg:text-4xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${
-                titleColorClasses[theme.color]
-              }`}
-            >
-              {post.title}&nbsp;
-              <span className="inline-block opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-                <BsArrowRight className="inline-block h-8 -mt-1 ml-1 w-auto opacity-70" />
-              </span>
-            </h3>
-            <div className="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
-              <TinaMarkdown content={post.excerpt} />
-            </div>
-            <div className="flex items-center">
-              <div className="flex-shrink-0 mr-2">
-                {post?.author?.avatar ? (
+            <div className="flex flex-col justify-stretch lg:flex-row flex-grow px-6 sm:px-8 md:px-10 py-10 gap-4">
+              {post.heroImg && (
+                <div className="flex justify-center items-center bg-gray-100 max-h-72 lg:max-h-auto overflow-hidden">
                   <Image
-                    width={500}
-                    height={500}
-                    className="size-10 object-cover rounded-full shadow-sm"
-                    src={post?.author?.avatar}
-                    alt={post?.author?.name ?? ""}
-                  />)
-                : <div className="size-10 rounded-full bg-gray-300" />}
-              </div>
-              <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
-                {post?.author?.name}
-              </p>
-              {formattedDate !== "" && (
-                <>
-                  <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">
-                    —
-                  </span>
-                  <p className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
-                    {formattedDate}
-                  </p>
-                </>
+                    src={post.heroImg}
+                    className="object-cover h-full"
+                    alt=""
+                    width={400}
+                    height={400}
+                  />
+                </div>
               )}
+              <div className="flex-grow">
+                <h2
+                  className={`text-gray-700 dark:text-white text-2xl lg:text-3xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${
+                    titleColorClasses[theme.color]
+                  }`}
+                >
+                  {post.title}&nbsp;
+                  <span className="inline-block opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
+                    <BsArrowRight className="inline-block h-8 -mt-1 ml-1 w-auto opacity-70" aria-hidden />
+                  </span>
+                </h2>
+                <div className="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
+                  <TinaMarkdown content={post.excerpt} />
+                </div>
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 mr-2">
+                    {post?.author?.avatar ? (
+                      <Image
+                        width={500}
+                        height={500}
+                        className="size-10 object-cover rounded-full shadow-sm"
+                        src={post?.author?.avatar}
+                        alt={post?.author?.name ?? ""}
+                      />)
+                    : <div className="size-10 rounded-full bg-gray-300" />}
+                  </div>
+                  <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
+                    {post?.author?.name}
+                  </p>
+                  {formattedDate !== "" && (
+                    <>
+                      <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">
+                        —
+                      </span>
+                      <p className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
+                        {formattedDate}
+                      </p>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
           </Link>
         );
