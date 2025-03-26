@@ -1,7 +1,7 @@
 import * as React from 'react';
 import MapLibre, { FullscreenControl, Layer, MapRef, NavigationControl, ScaleControl, Source } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { districtGeojson, toulouseGeojson } from '@/components/map/style';
+import { districtGeojson, districtWithStCyprienGeojson, toulouseGeojson } from '@/components/map/style';
 import { getBoundsFromCoordinates } from '@/components/map/utils';
 import bbox from '@turf/bbox';
 
@@ -9,6 +9,7 @@ export default function Map() {
   const mapRef = React.useRef<MapRef>(null);
 
   const bounds = getBoundsFromCoordinates(bbox(districtGeojson.features[0]))
+  const extendedBounds = getBoundsFromCoordinates(bbox(districtWithStCyprienGeojson.features[0]));
   const maxBounds = getBoundsFromCoordinates(bbox(toulouseGeojson.features[0]));
 
   const handleClick = () => {
@@ -19,7 +20,7 @@ export default function Map() {
     <MapLibre
       ref={mapRef}
       initialViewState={{
-        bounds,
+        bounds: extendedBounds,
       }}
       maxBounds={maxBounds}
       mapStyle="https://tiles.openfreemap.org/styles/liberty"
