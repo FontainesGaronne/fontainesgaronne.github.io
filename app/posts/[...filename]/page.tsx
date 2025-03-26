@@ -23,16 +23,23 @@ export async function generateStaticParams() {
   let posts = await client.queries.postConnection();
   const allPosts = posts;
 
+  if (!allPosts.data.postConnection.edges) {
+    return [];
+  }
+
   while (posts.data?.postConnection.pageInfo.hasNextPage) {
     posts = await client.queries.postConnection({
       after: posts.data.postConnection.pageInfo.endCursor,
     });
+    if (!posts.data.postConnection.edges) {
+      break;
+    }
     allPosts.data.postConnection.edges.push(...posts.data.postConnection.edges);
   }
 
   const params =
     allPosts.data?.postConnection.edges.map((edge) => ({
-      filename: edge.node._sys.breadcrumbs,
+      filename: edge?.node?._sys.breadcrumbs,
     })) || [];
 
   return params;

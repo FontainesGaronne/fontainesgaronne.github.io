@@ -37,17 +37,26 @@ export async function generateStaticParams() {
   let pages = await client.queries.pageConnection();
   const allPages = pages;
 
+  if (!allPages.data.pageConnection.edges) {
+    return [];
+  }
+
   while (pages.data.pageConnection.pageInfo.hasNextPage) {
     pages = await client.queries.pageConnection({
       after: pages.data.pageConnection.pageInfo.endCursor,
     });
+
+    if (!pages.data.pageConnection.edges) {
+      break;
+    }
     allPages.data.pageConnection.edges.push(...pages.data.pageConnection.edges);
   }
 
-  const params = allPages.data?.pageConnection.edges.map((edge) => ({
-    filename: edge.node._sys.breadcrumbs,
-  })) || [];
-
-  // exclude the home page
-  return params.filter(p => !p.filename.every(x => x === "home"));
+  const params = allPages.data?.pageConnection.edges
+    .map((edge) => ({
+      filename: edge?.node?._sys.breadcrumbs || [],
+    }))
+    .filter((x) => x.filename.length > 0)
+    .filter((x) => !x.filename.every((x) => x === 'home')); // exclude the home page
+  return params;
 }
