@@ -12,7 +12,6 @@ import {
   AgendaConnectionQueryVariables,
 } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
-import { partition } from "@/lib/utils";
 
 const titleColorClasses = {
   blue: "group-hover:text-blue-600 dark:group-hover:text-blue-300",
@@ -25,45 +24,39 @@ const titleColorClasses = {
   yellow: "group-hover:text-yellow-500 dark:group-hover:text-yellow-300",
 };
 interface ClientAgendaProps {
-  data: AgendaConnectionQuery;
-  variables: AgendaConnectionQueryVariables;
-  query: string;
+  currentEventsQuery: {
+    data: AgendaConnectionQuery;
+    variables: AgendaConnectionQueryVariables;
+    query: string;
+  }
+  futureEventsQuery: {
+    data: AgendaConnectionQuery;
+    variables: AgendaConnectionQueryVariables;
+    query: string;
+  }
+  pastEventsQuery: {
+    data: AgendaConnectionQuery;
+    variables: AgendaConnectionQueryVariables;
+    query: string;
+  }
 }
 
-export default function AgendaClientPage(props: ClientAgendaProps) {
-  const { data } = useTina({ ...props });
+export default function AgendaClientPage({ currentEventsQuery, futureEventsQuery, pastEventsQuery }: ClientAgendaProps) {
+
+  const { data: currentEventsData } = useTina({ ...currentEventsQuery });
+  const { data: futureEventsData } = useTina({ ...futureEventsQuery });
+  const { data: pastEventsData } = useTina({ ... pastEventsQuery });
   const { theme } = useLayout();
-
-  const posts = data?.agendaConnection.edges;
-
-  if( !posts) {
-    return null;
-  }
-
-  const [currentAndFutureEvents, pastEvents] = partition(posts, item => {
-    const startDate = new Date(item.node.startDate).setHours(0, 0, 0, 0);
-    const endDate = new Date(item.node.endDate ?? item.node.startDate).setHours(0, 0, 0, 0);
-    const currentDate = new Date().setHours(0, 0, 0, 0);
-    return (endDate ?? startDate) > currentDate
-  })
-
-  const [currentEvents, futureEvents] = partition(currentAndFutureEvents, item => {
-    const startDate = new Date(item.node.startDate).setHours(0, 0, 0, 0);
-    const endDate = new Date(item.node.endDate).setHours(0, 0, 0, 0);
-    const currentDate = new Date().setHours(0, 0, 0, 0);
-
-    return (startDate === endDate && endDate === currentDate) || (startDate <= currentDate && endDate >= currentDate) 
-  })
 
   const nextData = [{
     title: "C'est en ce moment !",
-    data: currentEvents,
+    data: currentEventsData?.agendaConnection.edges ?? [],
   },{
     title: "Les évènements à venir",
-    data: futureEvents,
+    data: futureEventsData?.agendaConnection.edges ?? [],
   },{
     title: "Les évènements passés",
-    data: pastEvents,
+    data: pastEventsData?.agendaConnection.edges ?? [],
   }].filter(item => item.data.length > 0)
 
   return (

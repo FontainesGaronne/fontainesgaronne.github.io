@@ -6,16 +6,54 @@ import AgendaClientPage from "./client-page";
 export const revalidate = 300;
 
 export default async function PostsPage() {
-  const posts = await client.queries.agendaConnection({ sort: 'endDate', last: -1 });
+  const currentEventsQuery = await client.queries.agendaConnection({
+    sort: 'endDate',
+    filter: {
+      startDate: {
+        before: new Date().toISOString()
+      },
+      endDate: {
+        after: new Date().toISOString()
+      }
+    }
+  });
 
-  if (!posts) {
+  const futureEventsQuery = await client.queries.agendaConnection({
+    sort: 'startDate',
+    filter: {
+      startDate: {
+        after: new Date().toISOString()
+      }
+    }
+  });
+
+  const pastEventsQuery = await client.queries.agendaConnection({
+    sort: 'endDate',
+    last: -1,
+    filter: {
+      endDate: {
+        before: new Date().toISOString()
+      }
+    }
+  });
+
+  if (!currentEventsQuery && !futureEventsQuery && !pastEventsQuery) {
     return null;
-  }
+  } 
+  
 
   return (
-    <Layout rawPageData={posts.data}>
+    <Layout rawPageData={{
+      ...currentEventsQuery.data ?? {},
+      ...futureEventsQuery.data ?? {},
+      ...pastEventsQuery.data ?? {}
+    }}>
       <Container size="large" width="large">
-        <AgendaClientPage {...posts} />
+        <AgendaClientPage
+          currentEventsQuery={currentEventsQuery}
+          futureEventsQuery={futureEventsQuery}
+          pastEventsQuery={pastEventsQuery}
+        />
       </Container>
     </Layout>
   );
