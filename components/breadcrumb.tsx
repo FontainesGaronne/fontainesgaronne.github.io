@@ -36,7 +36,7 @@ function getList(data) {
       label: data.data.post.title,
     }]
   }
-  if (data.data.page.title && !data.data.page.id.endsWith('home.mdx')) {
+  if (data.data.page?.title) {
     return [home, {
       label: data.data.page.title,
     }]

@@ -30,7 +30,7 @@ export default async function Page({
 
   return (
     <Layout rawPageData={nextData}>
-      <ClientPage {...nextData}></ClientPage>
+      <ClientPage pageQuery={nextData} />
     </Layout>
   );
 }
