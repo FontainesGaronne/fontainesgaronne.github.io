@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import React from "react";
 import {
   Components,
@@ -44,13 +43,14 @@ export const components: Components<{
 
     switch (props.format) {
       case "iso":
-        return <span>{format(dt, "yyyy-MM-dd")}</span>;
+        return <span>{dt.toISOString().split('T')[0]}</span>;
       case "utc":
-        return <span>{format(dt, "eee, dd MMM yyyy HH:mm:ss OOOO")}</span>;
+        return <span>{dt.toUTCString()}</span>;
       case "local":
-        return <span>{format(dt, "P")}</span>;
       default:
-        return <span>{format(dt, "P")}</span>;
+        return <span>{new Intl.DateTimeFormat('fr-FR', {
+          dateStyle: 'long'
+        }).format(dt)}</span>;
     }
   },
   NewsletterSignup: (props) => {
