@@ -45,7 +45,7 @@ export default function AgendaClientPage({ currentEventsQuery, futureEventsQuery
 
   const { data: currentEventsData } = useTina({ ...currentEventsQuery });
   const { data: futureEventsData } = useTina({ ...futureEventsQuery });
-  const { data: pastEventsData } = useTina({ ... pastEventsQuery });
+  const { data: pastEventsData } = useTina({ ...pastEventsQuery });
   const { theme } = useLayout();
 
   const nextData = [{
