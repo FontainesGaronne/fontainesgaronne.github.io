@@ -1,0 +1,37 @@
+{
+  "header": {
+    "name": "Comité de Quartier Fontaines Garonne",
+    "color": "default",
+    "nav": [
+      {
+        "href": "posts",
+        "label": "Actualités"
+      },
+      {
+        "href": "agenda",
+        "label": "Agenda"
+      },
+      {
+        "href": "adhesion",
+        "label": "Adhésion"
+      },
+      {
+        "href": "qui-sommes-nous",
+        "label": "À propos"
+      }
+    ]
+  },
+  "footer": {
+    "color": "default",
+    "social": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": ""
+    }
+  },
+  "theme": {
+    "color": "yellow",
+    "font": "nunito",
+    "darkMode": "system"
+  }
+}

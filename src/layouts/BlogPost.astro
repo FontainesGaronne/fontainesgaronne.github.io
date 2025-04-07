@@ -1,0 +1,22 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import config from '../content/config/config.json';
+const { data : { agenda, post } } = Astro.props;
+const title = `${post ? `${post.title} - actualités` : `${agenda.title} - agenda`}`;
+---
+
+<html lang="fr">
+	<head>
+		<BaseHead title={`${title} - ${config.seo.title}`} />
+	</head>
+
+	<body class="font-sans text-gray-800 bg-gray-50 flex flex-col">
+		<Header />
+		<main role="main" class="max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

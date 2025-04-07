@@ -1,0 +1,51 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import client from "../../tina/__generated__/client";
+import { link } from "fs";
+import { tinaField } from "tinacms/dist/react";
+const { data } = await client.queries.global({
+	relativePath: "index.json",
+});
+const header = data.global.header;
+---
+
+<header class="bg-white shadow-xs">
+	<div class="mx-auto px-6 max-w-7xl">
+		<div class="flex items-center justify-between flex-wrap gap-6">
+			<p class="text-lg font-bold tracking-tight xs:my-4">
+				<a href="/" class="flex gap-2 items-center tracking-[.002em]">
+					<span data-tina-field={tinaField(header, "name")}>
+						<img
+							src="/logo.png"
+							alt=""
+							width={80}
+							height={80}
+						/>
+					</span>
+					<span data-tina-field={tinaField(header, "name")}>
+						{header?.name}
+					</span>
+					<span class="sr-only">Retour à la page d'accueil</span>
+				</a>
+			</p>
+			{header?.nav && (
+				<nav role="navigation">
+						<ul class="flex flex-wrap gap-x-6 sm:gap-x-8 lg:gap-x-10 tracking-[.002em] -mx-4">
+							{header.nav.map((link) => {
+									return link ? (
+										<li>
+											<HeaderLink
+												href={`/${link.href}`}
+											>
+												{link.label}
+											</HeaderLink>
+										</li>
+									) : null;
+								})
+							}
+						</ul>
+				</nav>
+			)}
+			</div>
+	</div>
+</header>

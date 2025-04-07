@@ -1,0 +1,89 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import config from '../../content/config/config.json';	
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { BsArrowRight } from 'react-icons/bs';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
+
+const posts = await getCollection('post');
+
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={`Actualités du ${config.seo.title}`} description={`Actualités et ${config.seo.description}`} />
+	</head>
+	<body class="font-sans text-gray-800 bg-gray-50 flex flex-col">
+		<Header />
+		<main class="max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
+			<h1
+				class="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
+				tracking-normal text-center title-font bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500"
+			>
+				Les actualités du quartier
+			</h1>
+			<ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+				{
+					posts.map((post) => (
+						<li class="first:col-span-full">
+							<a
+								class="relative group flex flex-col gap-4 h-full px-6 sm:px-8 md:px-10 py-10 bg-white rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md"
+								href={`/posts/${post.id}`}
+							>
+								<div class="flex flex-col justify-stretch lg:flex-row flex-grow gap-4">
+									{post.data.heroImg && (
+										<div class="flex justify-center items-center bg-gray-100
+										max-h-72 lg:max-h-auto overflow-hidden">
+											<img loading="lazy" width={720} height={360} src={post.data.heroImg} alt="" />
+										</div>
+									)}
+									<div class="flex-grow">
+										<h2 class="text-gray-700 text-2xl lg:text-3xl font-semibold
+										title-font mb-5 transition-all duration-150 ease-out
+										group-hover:text-yellow-500"
+										>
+											{post.data.title}
+											<span class="inline-block opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
+												<BsArrowRight className="inline-block h-8 -mt-1 ml-1 w-auto opacity-70" aria-hidden />
+											</span>
+										</h2>
+										<div class="prose mx-auto mb-5 opacity-70">
+											<TinaMarkdown content={post.data.excerpt} />
+										</div>
+									</div>
+								</div>
+								<div class="flex items-center">
+									<div class="flex-shrink-0 mr-2">
+										{post.data.author?.avatar ? (
+											<img
+												width={500}
+												height={500}
+												class="size-10 object-cover rounded-full shadow-sm"
+												src={post.data.author.avatar}
+												alt={post.data.author.name ?? ""}
+											/>)
+										: <div class="size-10 rounded-full bg-gray-300" />}
+									</div>
+									<p class="text-base font-medium text-gray-600 group-hover:text-gray-800">
+										{post.data.author?.name}
+									</p>
+									<span class="font-bold text-gray-200 mx-2">
+										—
+									</span>
+									<p class="text-base text-gray-400 group-hover:text-gray-500">
+										<FormattedDate date={post.data.date} />
+									</p>
+								</div>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

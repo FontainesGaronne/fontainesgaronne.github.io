@@ -1,0 +1,89 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import config from '../../content/config/config.json';	
+import { getCollection } from 'astro:content';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import EventDates from '../../components/react/eventDates';
+
+const [ pastEvents, currentEvents, futureEvents ] = await Promise.all([
+	getCollection('pastEvents'),
+	getCollection('currentEvents'), 
+	getCollection('futureEvents')
+]);
+const nextData = [{
+    title: "C'est en ce moment !",
+    data: currentEvents,
+  },{
+    title: "Les évènements à venir",
+    data: futureEvents,
+  },{
+    title: "Les évènements passés",
+    data: pastEvents,
+  }].filter(item => item.data.length > 0);
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={`Évènements du ${config.seo.title}`} description={`Évènements et ${config.seo.description}`} />
+	</head>
+	<body class="font-sans text-gray-800 bg-gray-50 flex flex-col">
+		<Header />
+		<main role="main" class="max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
+				<h1
+					class="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
+				tracking-normal text-center title-font bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500"
+				>
+					Les événements du quartier
+				</h1>
+				{nextData.map(({ title, data }) => (
+					<>
+						<h2 
+							class="text-gray-700 text-3xl lg:text-4xl
+						font-semibold title-font group-hover:text-yellow-500"
+						>
+							{title}
+						</h2>
+						<ul class="md:grid gap-6 grid-cols-2 mb-4 py-10">
+							{
+								data.map(post => (
+									<li class="mb-8 last:mb-0">
+										<a 
+											class="relative overflow-hidden h-full flex flex-col group bg-white rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md hover:bg-slate-50 focus:shadow-md focus:bg-slate-50"
+											href={`/agenda/${post.id}`}
+										>
+											<div class="flex flex-col lg:flex-row flex-grow">
+												{post.data.heroImg && (
+													<div class="flex justify-center items-center
+													object-cover bg-gray-100 max-h-72 lg:max-h-auto">
+														
+														<img class="object-cover h-full" loading="lazy" width={400} height={400} src={post.data.heroImg} alt="" />
+													</div>
+												)}
+												<div class="px-6 sm:px-8 md:px-10 py-10 flex-grow">
+													<h2 class="text-gray-700 text-xl lg:text-2xl
+													font-semibold title-font mb-5 transition-all
+													duration-150 ease-out">{post.data.title}</h2>
+													{post.data.excerpt && (
+														<div class="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
+															<TinaMarkdown content={post.data.excerpt} />
+														</div>
+													)}
+												</div>
+											</div>
+											<div class="flex items-center flex-wrap gap-2">
+												<EventDates startDate={post.data.startDate} endDate={post.data.endDate} />
+											</div>
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</>
+				))}
+		</main>
+		<Footer />
+	</body>
+</html>
