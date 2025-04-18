@@ -1,7 +1,7 @@
 "use client";
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import MapLibre, { FullscreenControl, Layer, type MapLayerMouseEvent, type MapRef, NavigationControl, ScaleControl, Source } from 'react-map-gl/maplibre';
+import MapLibre, { FullscreenControl, Layer, type MapLayerMouseEvent, NavigationControl, ScaleControl, Source } from 'react-map-gl/maplibre';
 import { districtGeojson, districtWithStCyprienGeojson, toulouseGeojson } from './style';
 import { getBoundsFromCoordinates } from './utils';
 import bbox from '@turf/bbox';
