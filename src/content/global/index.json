@@ -4,6 +4,10 @@
     "color": "default",
     "nav": [
       {
+        "href": "/liste-commerces/",
+        "label": "Liste des commerces"
+      },
+      {
         "href": "posts",
         "label": "Actualités"
       },
