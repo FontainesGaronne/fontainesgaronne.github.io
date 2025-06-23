@@ -4,16 +4,16 @@
     "color": "default",
     "nav": [
       {
-        "href": "/liste-commerces/",
-        "label": "Liste des commerces"
-      },
-      {
         "href": "posts",
         "label": "Actualités"
       },
       {
         "href": "agenda",
         "label": "Agenda"
+      },
+      {
+        "href": "/liste-commerces/",
+        "label": "Liste des commerces"
       },
       {
         "href": "adhesion",
