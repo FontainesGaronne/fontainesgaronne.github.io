@@ -12,7 +12,7 @@
         "label": "Agenda"
       },
       {
-        "href": "/liste-commerces/",
+        "href": "liste-commerces",
         "label": "Liste des commerces"
       },
       {
