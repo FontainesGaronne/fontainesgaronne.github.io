@@ -4,16 +4,16 @@
     "color": "default",
     "nav": [
       {
-        "href": "liste-commerces",
-        "label": "Mon quarier"
-      },
-      {
         "href": "posts",
         "label": "Actualités"
       },
       {
         "href": "agenda",
         "label": "Agenda"
+      },
+      {
+        "href": "liste-commerces",
+        "label": "Mon quarier"
       },
       {
         "href": "adhesion",
