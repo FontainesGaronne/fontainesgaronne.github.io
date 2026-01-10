@@ -4,6 +4,10 @@
     "color": "default",
     "nav": [
       {
+        "href": "liste-commerces",
+        "label": "Mon quarier"
+      },
+      {
         "href": "posts",
         "label": "Actualités"
       },
