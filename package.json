@@ -14,25 +14,25 @@
     "@astrojs/react": "^4.4.2",
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
-    "@tailwindcss/vite": "^4.1.3",
-    "@tanstack/react-virtual": "^3.13.4",
-    "@turf/bbox": "^7.2.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-virtual": "^3.13.18",
+    "@turf/bbox": "^7.3.2",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "astro": "^5.16.11",
     "clsx": "^2.1.1",
-    "maplibre-gl": "^5.3.0",
+    "maplibre-gl": "^5.16.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
-    "react-map-gl": "^8.0.2",
-    "tailwind-merge": "^3.1.0",
-    "tailwindcss": "^4.1.3",
+    "react-map-gl": "^8.1.0",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^4.1.18",
     "tinacms": "^3.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.19",
     "@tinacms/cli": "^2.1.1",
-    "@types/node": "^22.13.10"
+    "@types/node": "^22.19.7"
   }
 }
