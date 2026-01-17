@@ -47,7 +47,7 @@ const HomePage = (props: Props) => {
 									className="relative overflow-hidden h-full flex flex-col group mb-8 last:mb-0 bg-white rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md focus:shadow-md"
 									href={`/agenda/${post.id}`}
 								>
-									<div className="flex flex-col lg:flex-row flex-grow">
+									<div className="flex flex-col lg:flex-row grow">
 										{post.data.heroImg && (
 											<div className="flex justify-center items-center object-cover bg-gray-100 max-h-72 lg:max-h-auto">
 												<img
@@ -60,7 +60,7 @@ const HomePage = (props: Props) => {
 												/>
 											</div>
 										)}
-										<div className="px-6 sm:px-8 md:px-10 py-10 flex-grow">
+										<div className="px-6 sm:px-8 md:px-10 py-10 grow">
 											<h3
 												className="text-gray-700 text-xl lg:text-2xl font-semibold title-font mb-5 transition-all duration-150 ease-out group-hover:text-yellow-500"
 											>

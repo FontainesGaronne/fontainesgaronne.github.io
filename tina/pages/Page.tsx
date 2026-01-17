@@ -32,7 +32,7 @@ const TinaPage = (props: Props) => {
 			<h1
 				data-tina-field={tinaField(page, "title")}
 				className="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
-				tracking-normal text-center title-font bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500"
+				tracking-normal text-center title-font bg-clip-text text-transparent bg-linear-to-r from-yellow-400 to-yellow-500"
 			>
 					{page.title}
 			</h1>
@@ -44,9 +44,6 @@ const TinaPage = (props: Props) => {
 				)
 			})} */}
 			<Blocks {...nextData} />
-			<div className="prose" data-tina-field={tinaField(page, "body")}>
-				<TinaMarkdown content={page.body} />
-			</div>
 		</main>
 	)
 }
