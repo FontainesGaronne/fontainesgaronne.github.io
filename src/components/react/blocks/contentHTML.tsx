@@ -6,23 +6,19 @@ import type { PageBlocksContentHtml } from "../../../../tina/__generated__/types
 
 export const ContentHTML = ({ data }: { data: PageBlocksContentHtml }) => {
   return (
-    <section
-      data-tina-field={tinaField(data, "HTMLContent")}
-    >
+    <section data-tina-field={tinaField(data, "HTMLContent")}>
       {data.headline && (
         <h3
           data-tina-field={tinaField(data, "headline")}
           className={`w-full relative mb-10 text-3xl font-extrabold tracking-normal leading-tight title-font`}
         >
-          <span
-            className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600"
-          >
+          <span className="bg-clip-text text-transparent bg-linear-to-r from-yellow-400 to-yellow-600">
             {data.headline}
           </span>
         </h3>
       )}
 
-      <div dangerouslySetInnerHTML={{__html: data.HTMLContent ?? '' }} />
+      <div dangerouslySetInnerHTML={{ __html: data.HTMLContent ?? "" }} />
     </section>
   );
 };

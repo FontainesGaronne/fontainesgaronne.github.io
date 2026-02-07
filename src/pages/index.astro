@@ -6,7 +6,7 @@ import config from '../content/config/config.json';
 import client from '../../tina/__generated__/client.ts';
 import HomePage from "../../tina/pages/HomePage.tsx";
 import { getCollection } from 'astro:content';
-import Map from '../components/Map.astro';
+
 import type { Agenda } from '../../tina/__generated__/types';
 const data = await client.queries.page({relativePath: "home.mdx"});
 const [ currentEvents, futureEvents ] = await Promise.all([
@@ -27,8 +27,7 @@ const events = [...currentEvents, ...futureEvents] as unknown as {
 	</head>
 	<body class="font-sans text-gray-800 bg-gray-50 flex flex-col">
 		<Header />
-			<HomePage {...data} events={events} client:tina />
-			<Map />
+		<HomePage {...data} events={events} client:tina />
 		<Footer />
 	</body>
 </html>

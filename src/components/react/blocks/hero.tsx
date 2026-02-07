@@ -2,12 +2,10 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksHero } from "../../../../tina/__generated__/types";
-// import Map from '../../react/map/map';
-// import Map from "../../Map.astro";
 import { Actions } from "./actions";
+import { cn } from "../utils";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
-
   return (
     <section>
       {data.headline && (
@@ -16,7 +14,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
           className={`w-full relative mb-10 text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-normal leading-tight title-font`}
         >
           <span
-            className={`bg-clip-text text-transparent bg-gradient-to-r  ${
+            className={`bg-clip-text text-transparent bg-linear-to-r  ${
               data.color === "primary"
                 ? "from-white to-gray-100"
                 : "from-yellow-400 to-yellow-600"
@@ -26,20 +24,20 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
           </span>
         </h1>
       )}
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex flex-col">
-          {data.text && (
+      {data.text.children.length > 0 && (
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col">
             <div
               data-tina-field={tinaField(data, "text")}
               className="prose prose-lg mb-10 !*:text-xl"
             >
               <TinaMarkdown content={data.text} />
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
       <div className="flex flex-col md:flex-row gap-6">
-        {data.text2 && (
+        {data.text2.children.length > 0 && (
           <div className="flex flex-col md:w-1/2">
             <div
               data-tina-field={tinaField(data, "text2")}
@@ -50,15 +48,23 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
           </div>
         )}
         {data.map?.displayMap && (
-        <div
-          data-tina-field={tinaField(data.map, "displayMap")}
-          className="flex flex-col flex-grow prose prose-lg dark:prose-dark mb-10"
-        >
-          {data.map.titleMap && (
-            <h2 data-tina-field={tinaField(data.map, "titleMap")}>{data.map.titleMap}</h2>
+          <div
+            data-tina-field={tinaField(data.map, "displayMap")}
+            className="flex flex-col grow prose prose-lg dark:prose-dark mb-10"
+          >
+            {data.map.titleMap && (
+              <h2 data-tina-field={tinaField(data.map, "titleMap")}>
+                {data.map.titleMap}
+              </h2>
             )}
-            <div id="map" className="overflow-hidden rounded-lg flex-grow h-80 md:h-full" />
-        </div>
+            <div
+              id="map"
+              className={cn(
+                "overflow-hidden rounded-lg grow h-80",
+                data.text2.children.length > 0 && "md:h-full"
+              )}
+            />
+          </div>
         )}
       </div>
       {data.actions && (
@@ -145,6 +151,9 @@ export const heroBlockSchema: Template = {
       type: "object",
       label: "Carte",
       name: "map",
+      ui: {
+        previewSrc: "/blocks/features.png",
+      },
       fields: [
         {
           type: "boolean",
