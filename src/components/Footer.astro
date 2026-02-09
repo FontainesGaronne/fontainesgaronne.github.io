@@ -1,12 +1,12 @@
 ---
-import { BsRssFill } from "react-icons/bs";
+import { BsEnvelope, BsFacebook, BsInstagram, BsRssFill } from "react-icons/bs";
 import Map from '../components/Map.astro';
 
 
 ---
 
 <footer role="contentinfo" class="bg-white shadow-sm">
-	<div class="flex wrap justify-between mx-auto px-6 max-w-7xl">
+	<div class="flex wrap items-center justify-between mx-auto px-6 max-w-7xl">
 		<a
 			href="/"
 			class="group mx-2 font-bold tracking-tight text-gray-400 opacity-50 hover:opacity-100 transition duration-150 ease-out whitespace-nowrap"
@@ -16,13 +16,45 @@ import Map from '../components/Map.astro';
 				src="/logo.png"
 				width={80}
 				height={80}
-				alt=""
+				alt="Comité de quartier Fontaines Garonne - Toulouse"
 			/>
+				<span class="sr-only">Retour à l'accueil</span>
 		</a>
-		<a class="flex gap-2 items-center" href="/rss.xml">
-			<BsRssFill aria-hidden />
-			S'abonner au flux RSS des actualités du quartier
-		</a>
+		<div class="flex flex-col gap-2">
+			<div class="flex items-center gap-2 justify-end">
+				<span class="font-medium">Suivez-nous :</span>
+				<ul class="flex items-center gap-2">
+					<li>
+						<a href="https://www.facebook.com/people/Comit%C3%A9-de-quartier-Fontaines-Garonne/100064331366255/" target="_blank">
+							<BsFacebook size={16} aria-hidden />
+							<span class="sr-only">sur Facebook</span>
+						</a>
+					</li>
+					<li role="presentation">-</li>
+					<li>
+						<a href="https://www.instagram.com/comitequartierfontainesgaronne/" target="_blank">
+							<BsInstagram size={16} aria-hidden />
+							<span class="sr-only">sur Instagram</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="flex flex-wrap items-center justify-end gap-2">
+				<li>
+					<a href="mailto:fontaines.garonne@free.fr" class="flex gap-2 items-center hover:underline">
+						<BsEnvelope size={16} aria-hidden />
+						Contactez-nous
+					</a>
+				</li>
+				<li role="presentation">-</li>
+				<li>
+					<a class="flex gap-2 items-center hover:underline" href="/rss.xml">
+						<BsRssFill size={16} aria-hidden />
+						S'abonner au flux RSS des actualités <span class="sr-only">du quartier</span>
+					</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 	<Map />
 </footer>
