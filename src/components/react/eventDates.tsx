@@ -1,16 +1,18 @@
-import React from "react";
 import { BsCalendar2CheckFill } from "react-icons/bs";
-import { start } from "repl";
 
 type EventDatesType = Partial<HTMLParagraphElement> & {
-  startDate: Date; 
+  startDate: Date;
   endDate: Date;
   tinaFieldStartDate?: string;
   tinaFieldEndDate?: string;
-}
+};
 
-
-export default function EventDates({ startDate, endDate, tinaFieldStartDate, tinaFieldEndDate }: EventDatesType) {
+export default function EventDates({
+  startDate,
+  endDate,
+  tinaFieldStartDate,
+  tinaFieldEndDate,
+}: EventDatesType) {
   if (!startDate && !endDate) {
     return null;
   }
@@ -19,12 +21,16 @@ export default function EventDates({ startDate, endDate, tinaFieldStartDate, tin
     year: "numeric",
     month: "long",
     day: "numeric",
-  }
-  
+  };
 
-  if (startDate && endDate && startDate.toUTCString().split('T')[0] !== endDate.toUTCString().split('T')[0])  {
-    const firstDate = startDate;
-    const secondDate = endDate;
+  console.error(startDate, endDate);
+
+  if (
+    startDate &&
+    endDate &&
+    startDate.toISOString().split("T")[0] !==
+      endDate.toISOString().split("T")[0]
+  ) {
     return (
       <p className={classNames}>
         <BsCalendar2CheckFill aria-hidden />
@@ -35,7 +41,9 @@ export default function EventDates({ startDate, endDate, tinaFieldStartDate, tin
             className="font-bold"
             data-tina-field={tinaFieldStartDate}
           >
-            {new Intl.DateTimeFormat('fr', dateTimeFormatOptions).format(firstDate)}
+            {new Intl.DateTimeFormat("fr", dateTimeFormatOptions).format(
+              startDate
+            )}
           </time>{" "}
           <span>au</span>{" "}
           <time
@@ -43,11 +51,13 @@ export default function EventDates({ startDate, endDate, tinaFieldStartDate, tin
             className="font-bold"
             data-tina-field={tinaFieldEndDate}
           >
-            {new Intl.DateTimeFormat('fr', dateTimeFormatOptions).format(secondDate)}
+            {new Intl.DateTimeFormat("fr", dateTimeFormatOptions).format(
+              endDate
+            )}
           </time>
         </span>
       </p>
-    )
+    );
   }
 
   const date = startDate || endDate;
@@ -56,15 +66,15 @@ export default function EventDates({ startDate, endDate, tinaFieldStartDate, tin
     <p className={classNames}>
       <BsCalendar2CheckFill aria-hidden />
       <span>
-        <span>Le</span>{" "}  
+        <span>Le</span>{" "}
         <time
           dateTime={date.toISOString()}
           className="font-bold"
           data-tina-field={tinaFieldStartDate}
         >
-          {new Intl.DateTimeFormat('fr', dateTimeFormatOptions).format(date)}
+          {new Intl.DateTimeFormat("fr", dateTimeFormatOptions).format(date)}
         </time>
       </span>
     </p>
-  )
+  );
 }
