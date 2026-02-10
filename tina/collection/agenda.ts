@@ -9,6 +9,10 @@ const Agenda: Collection = {
     router: ({ document }) => {
       return `/agenda/${document._sys.filename}`;
     },
+    allowedActions: {
+      create: true,
+      delete: true,
+    },
   },
   fields: [
     {

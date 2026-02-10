@@ -23,8 +23,7 @@ const Page: Collection = {
       type: "string",
       label: "Titre",
       name: "title",
-      description:
-        "Le titre de la page",
+      description: "Le titre de la page",
       isTitle: true,
       required: true,
     },
@@ -45,9 +44,9 @@ const Page: Collection = {
       ],
     },
     {
-      type: 'rich-text',
-      label: 'Contenu',
-      name: 'body',
+      type: "rich-text",
+      label: "Contenu",
+      name: "body",
       isBody: true,
     },
   ],
