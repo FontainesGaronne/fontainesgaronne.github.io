@@ -21,6 +21,11 @@ export async function getStaticPaths() {
 }
 
 const { getTinaProps } = Astro.props;
+const global = await client.queries.global({
+	relativePath: "index.json",
+});
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+const nav = global.data.global.header?.nav;
 const data = await getTinaProps();
 ---
 
@@ -31,7 +36,7 @@ const data = await getTinaProps();
 	</head>
 	<body class="font-sans text-gray-800 bg-gray-50 flex flex-col">
 		<Header />
-			<Page {...data} client:tina />
+			<Page {...data} nav={nav} pathname={pathname} client:tina />
 		<Footer />
 	</body>
 </html>

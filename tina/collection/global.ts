@@ -54,6 +54,31 @@ const Global: Collection = {
               label: "Intitulé",
               name: "label",
             },
+            {
+              type: "object",
+              label: "Menu déroulant",
+              list: true,
+              name: "submenu",
+              ui: {
+                itemProps: (item) => {
+                  return { label: item?.submenuItem };
+                },
+              },
+              fields: [
+                {
+                  type: "reference",
+                  label: "Page",
+                  name: "submenuItem",
+                  ui: {
+                    optionComponent: (props, _internalSys) => {
+                      return props.title || _internalSys.path;
+                    },
+                  },
+
+                  collections: ["page"],
+                },
+              ],
+            },
           ],
         },
       ],
