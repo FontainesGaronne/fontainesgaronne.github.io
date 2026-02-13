@@ -38,7 +38,9 @@ const HomePage = (props: Props) => {
 
   return (
     <main className="grow max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
-      <Blocks {...nextData} />
+      <div className="flex flex-col gap-2 sm:gap-4 lg:gap-8">
+        <Blocks {...nextData} />
+      </div>
       {events.length > 0 && (
         <section className="sm:px-0 flex flex-wrap gap-x-10 gap-y-8 pt-8 sm:pt-16">
           <h2 className="text-3xl font-semibold title-font">

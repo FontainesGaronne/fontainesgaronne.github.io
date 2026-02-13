@@ -3,6 +3,7 @@ import { heroBlockSchema } from "../../src/components/react/blocks/hero";
 import { contentBlockSchema } from "../../src/components/react/blocks/content";
 import { contentHTMLBlockSchema } from "../../src/components/react/blocks/contentHTML";
 import { featureBlockSchema } from "../../src/components/react/blocks/features";
+import { fullMapBlockSchema } from "../../src/components/react/blocks/fullmap";
 
 const Page: Collection = {
   label: "Pages",
@@ -41,6 +42,7 @@ const Page: Collection = {
         featureBlockSchema,
         contentBlockSchema,
         contentHTMLBlockSchema,
+        fullMapBlockSchema,
       ],
     },
     {

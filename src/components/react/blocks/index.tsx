@@ -4,21 +4,15 @@ import { Content } from "./content";
 import { Features } from "./features";
 import { ContentHTML } from "./contentHTML";
 import type { Page, PageBlocks } from "../../../../tina/__generated__/types";
+import { FullMap } from "./fullmap";
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
-  return (
-    <div className="flex flex-col gap-2 sm:gap-4 lg:gap-8">
-      {props.blocks
-        ? props.blocks.map(function (block, i) {
-            return (
-              <div key={i} data-tina-field={tinaField(block)}>
-                <Block {...block} />
-              </div>
-            );
-          })
-        : null}
-    </div>
-  );
+  if (!props.blocks?.length) {
+    return null;
+  }
+  return props.blocks.map(function (block, i) {
+    return <Block {...block} key={i} data-tina-field={tinaField(block)} />;
+  });
 };
 
 const Block = (block: PageBlocks) => {
@@ -31,6 +25,8 @@ const Block = (block: PageBlocks) => {
       return <Features data={block} />;
     case "PageBlocksContentHTML":
       return <ContentHTML data={block} />;
+    case "PageBlocksFullmap":
+      return <FullMap data={block} />;
     default:
       return null;
   }

@@ -1,5 +1,3 @@
-import React from "react";
-
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksContentHtml } from "../../../../tina/__generated__/types";
@@ -29,7 +27,8 @@ export const contentHTMLBlockSchema: Template = {
   ui: {
     previewSrc: "/blocks/content.png",
     defaultItem: {
-      HTMLContent: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+      HTMLContent:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
     },
   },
   fields: [
@@ -43,10 +42,8 @@ export const contentHTMLBlockSchema: Template = {
       label: "Contenu HTML (iframe)",
       name: "HTMLContent",
       ui: {
-        component:"textarea"
-      }
-    }
+        component: "textarea",
+      },
+    },
   ],
 };
-
-

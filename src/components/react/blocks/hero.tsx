@@ -152,7 +152,7 @@ export const heroBlockSchema: Template = {
       label: "Carte",
       name: "map",
       ui: {
-        previewSrc: "/blocks/features.png",
+        previewSrc: "/blocks/map.png",
       },
       fields: [
         {
