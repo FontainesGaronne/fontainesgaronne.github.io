@@ -83,103 +83,103 @@ const Global: Collection = {
         },
       ],
     },
-    {
-      type: "object",
-      label: "Pied de page",
-      name: "footer",
-      fields: [
-        {
-          type: "string",
-          label: "Couleur",
-          name: "color",
-          options: [
-            { label: "Defaut", value: "default" },
-            { label: "Principale", value: "primary" },
-          ],
-        },
-        {
-          type: "object",
-          label: "Liens réseaux sociaux",
-          name: "social",
-          fields: [
-            {
-              type: "string",
-              label: "Facebook",
-              name: "facebook",
-            },
-            {
-              type: "string",
-              label: "Twitter",
-              name: "twitter",
-            },
-            {
-              type: "string",
-              label: "Instagram",
-              name: "instagram",
-            },
-            {
-              type: "string",
-              label: "Github",
-              name: "github",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "object",
-      label: "Theme",
-      name: "theme",
-      fields: [
-        {
-          type: "string",
-          label: "Couleur principale",
-          name: "color",
-          ui: {
-            // @ts-ignore next-line
-            component: ColorPickerInput,
-          },
-        },
-        {
-          type: "string",
-          name: "font",
-          label: "Typographie",
-          options: [
-            {
-              label: "System Sans",
-              value: "sans",
-            },
-            {
-              label: "Nunito",
-              value: "nunito",
-            },
-            {
-              label: "Lato",
-              value: "lato",
-            },
-          ],
-        },
-        {
-          type: "string",
-          name: "darkMode",
-          label: "Préférence d'affichage",
-          options: [
-            {
-              label: "System",
-              value: "system",
-            },
-            {
-              label: "Clair",
-              value: "light",
-            },
-            {
-              label: "Sombre",
-              value: "dark",
-            },
-          ],
-        },
-      ],
-    },
+    // {
+    //   type: "object",
+    //   label: "Pied de page",
+    //   name: "footer",
+    //   fields: [
+    //     {
+    //       type: "string",
+    //       label: "Couleur",
+    //       name: "color",
+    //       options: [
+    //         { label: "Defaut", value: "default" },
+    //         { label: "Principale", value: "primary" },
+    //       ],
+    //     },
+    //     {
+    //       type: "object",
+    //       label: "Liens réseaux sociaux",
+    //       name: "social",
+    //       fields: [
+    //         {
+    //           type: "string",
+    //           label: "Facebook",
+    //           name: "facebook",
+    //         },
+    //         {
+    //           type: "string",
+    //           label: "Twitter",
+    //           name: "twitter",
+    //         },
+    //         {
+    //           type: "string",
+    //           label: "Instagram",
+    //           name: "instagram",
+    //         },
+    //         {
+    //           type: "string",
+    //           label: "Github",
+    //           name: "github",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: "object",
+    //   label: "Theme",
+    //   name: "theme",
+    //   fields: [
+    //     {
+    //       type: "string",
+    //       label: "Couleur principale",
+    //       name: "color",
+    //       ui: {
+    //         // @ts-ignore next-line
+    //         component: ColorPickerInput,
+    //       },
+    //     },
+    //     {
+    //       type: "string",
+    //       name: "font",
+    //       label: "Typographie",
+    //       options: [
+    //         {
+    //           label: "System Sans",
+    //           value: "sans",
+    //         },
+    //         {
+    //           label: "Nunito",
+    //           value: "nunito",
+    //         },
+    //         {
+    //           label: "Lato",
+    //           value: "lato",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: "string",
+    //       name: "darkMode",
+    //       label: "Préférence d'affichage",
+    //       options: [
+    //         {
+    //           label: "System",
+    //           value: "system",
+    //         },
+    //         {
+    //           label: "Clair",
+    //           value: "light",
+    //         },
+    //         {
+    //           label: "Sombre",
+    //           value: "dark",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
   ],
 };
 
