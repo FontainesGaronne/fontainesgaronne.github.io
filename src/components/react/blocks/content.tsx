@@ -20,7 +20,7 @@ export const Content = ({ data }: { data: PageBlocksContent }) => {
 
 export const contentBlockSchema: Template = {
   name: "content",
-  label: "Content",
+  label: "Contenu",
   ui: {
     previewSrc: "/blocks/content.png",
     defaultItem: {
@@ -32,6 +32,6 @@ export const contentBlockSchema: Template = {
       type: "rich-text",
       label: "Body",
       name: "body",
-    }
+    },
   ],
 };

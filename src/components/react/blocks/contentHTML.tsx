@@ -23,7 +23,7 @@ export const ContentHTML = ({ data }: { data: PageBlocksContentHtml }) => {
 
 export const contentHTMLBlockSchema: Template = {
   name: "contentHTML",
-  label: "Contenu HTML",
+  label: "Contenu HTML (principalement pour coller des iframe/widget)",
   ui: {
     previewSrc: "/blocks/content.png",
     defaultItem: {
