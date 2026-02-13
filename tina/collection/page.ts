@@ -45,12 +45,6 @@ const Page: Collection = {
         fullMapBlockSchema,
       ],
     },
-    {
-      type: "rich-text",
-      label: "Contenu",
-      name: "body",
-      isBody: true,
-    },
   ],
 };
 

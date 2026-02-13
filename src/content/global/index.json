@@ -17,15 +17,19 @@
     "color": "default",
     "nav": [
       {
-        "href": "posts",
+        "href": "/posts",
         "label": "Actualités"
       },
       {
-        "href": "agenda",
+        "href": "/agenda",
         "label": "Agenda"
       },
       {
-        "href": "Vie-de-quartier",
+        "href": "/histoire-du-quartier",
+        "label": "Histoire du quartier"
+      },
+      {
+        "href": "/Vie-de-quartier",
         "label": "Vie de quartier",
         "submenu": [
           {
@@ -40,12 +44,12 @@
         ]
       },
       {
-        "href": "adhesion",
-        "label": "Adhésion"
+        "href": "/comite-de-quartier",
+        "label": "Comité de quartier"
       },
       {
-        "href": "qui-sommes-nous",
-        "label": "À propos"
+        "href": "/adhesion",
+        "label": "Adhésion"
       }
     ]
   }
