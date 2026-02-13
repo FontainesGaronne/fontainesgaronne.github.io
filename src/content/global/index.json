@@ -1,4 +1,17 @@
 {
+  "footer": {
+    "color": "default",
+    "social": {
+      "facebook": "",
+      "twitter": "",
+      "instagram": ""
+    }
+  },
+  "theme": {
+    "color": "yellow",
+    "font": "nunito",
+    "darkMode": "system"
+  },
   "header": {
     "name": "Comité de Quartier Fontaines Garonne",
     "color": "default",
@@ -20,6 +33,9 @@
           },
           {
             "submenuItem": "src/content/pages/quartier/dechets.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/associations-commerces-services.mdx"
           }
         ]
       },
@@ -32,18 +48,5 @@
         "label": "À propos"
       }
     ]
-  },
-  "footer": {
-    "color": "default",
-    "social": {
-      "facebook": "",
-      "twitter": "",
-      "instagram": ""
-    }
-  },
-  "theme": {
-    "color": "yellow",
-    "font": "nunito",
-    "darkMode": "system"
   }
 }

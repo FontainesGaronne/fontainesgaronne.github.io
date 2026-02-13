@@ -1,5 +1,6 @@
 // From wordpress to astro 🚀
 export default {
+  "/liste-commerces": "/quartier/associations-commerces-services",
   "/2nde-edition-halles-de-laventure-cartoucherie-vendredi-5-octobre-19h":
     "/posts/2nde-edition-halles-de-laventure-cartoucherie-vendredi-5-octobre-19h",
   "/308": "/posts/308",
