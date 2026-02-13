@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getRelativeUrl(href?: string | null) {
-  if (!href) {
+  if (!href || typeof href !== "string") {
     return "";
   }
   if (href.startsWith("/")) {

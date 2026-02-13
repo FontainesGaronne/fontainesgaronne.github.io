@@ -31,12 +31,12 @@ const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 					</span>
 					<span class="sr-only">Retour à la page d'accueil</span>
 				</a>
-			</p>	
+			</p>
 			{header?.nav && (
 				<nav role="navigation">
 						<ul class="flex flex-wrap gap-x-6 sm:gap-x-8 lg:gap-x-10 tracking-[.002em] -mx-4">
 							{header.nav.filter(link => link !== null).map((link) => {
-									const submenu = link?.submenu?.map(item => ({ ...item, href: getHrefFromRelativePath(item?.submenuItem?._sys.relativePath) }))
+								const submenu = link?.submenu?.map(item => ({ ...item, href: getHrefFromRelativePath(item?.submenuItem?._sys.relativePath) }))
 									return (
 										<li class="relative flex items-center">
 											{!link.submenu ? (

@@ -26,13 +26,16 @@ const TinaPage = (props: Props) => {
 
   const menuWithSubmenu = props.nav.find(
     (item) =>
-      (item?.href === removeEndSlash(props.pathname) && item.submenu) ||
+      (item?.href === getRelativeUrl(removeEndSlash(props.pathname)) &&
+        item.submenu) ||
       item.submenu?.some(
         (subItem) =>
           getHrefFromRelativePath(subItem.submenuItem.id) ===
           getRelativeUrl(removeEndSlash(props.pathname))
       )
   );
+
+  console.log("mnu", menuWithSubmenu);
 
   const page = data.page;
   const nextData: any =
