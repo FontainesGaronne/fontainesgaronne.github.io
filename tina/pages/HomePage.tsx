@@ -6,14 +6,16 @@ import EventDates from "../../src/components/react/eventDates";
 import { BsArrowRight } from "react-icons/bs";
 
 type Props = {
-	variables: PageQueryVariables;
-	data: PageQuery;
-	query: string;
-	events: {
-		id: string;
-		data: Agenda;
-	}[]
-}
+  variables: PageQueryVariables;
+  data: PageQuery;
+  query: string;
+  events:
+    | {
+        id: string;
+        data: Agenda;
+      }[]
+    | [];
+};
 
 const HomePage = (props: Props) => {
 	const { data } = useTina({
@@ -34,7 +36,7 @@ const HomePage = (props: Props) => {
 	
 	const events = props.events;
 
-	return (
+  return (
     <main className="grow max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
       <Blocks {...nextData} />
       {events.length > 0 && (
@@ -48,6 +50,7 @@ const HomePage = (props: Props) => {
                 <a
                   className="relative overflow-hidden h-full flex flex-col group mb-8 last:mb-0 bg-white rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md focus:shadow-md"
                   href={`/agenda/${post.id}`}
+                  key={post.id}
                 >
                   <div className="flex flex-col lg:flex-row grow">
                     {post.data.heroImg && (
