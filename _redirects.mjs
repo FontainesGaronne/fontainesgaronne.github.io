@@ -1,5 +1,15 @@
 // From wordpress to astro 🚀
 export default {
+  "/animations-nature-climat-dans-le-quartier-dimanche-28-septembre":
+    "/posts/animations-nature-climat-dans-le-quartier-dimanche-28-septembre",
+  "/repas-de-quartier-vendredi-13-juin-des-19h":
+    "/posts/repas-de-quartier-vendredi-13-juin-des-19h/",
+  "/animations-nature-climat-dimanche-18-mai-2025":
+    "/posts/animations-nature-climat-dimanche-18-mai-2025",
+  "/vide-grenier-de-casselardit-18-mai-2025-place-baudin":
+    "/posts/vide-grenier-de-casselardit-18-mai-2025-place-baudin",
+  "/repas-de-quartier-7-juin-2024/":
+    "/posts/repas-de-quartier-le-vendredi-7-juin--partir-de-19h",
   "/liste-commerces": "/quartier/associations-commerces-services",
   "/2nde-edition-halles-de-laventure-cartoucherie-vendredi-5-octobre-19h":
     "/posts/2nde-edition-halles-de-laventure-cartoucherie-vendredi-5-octobre-19h",
