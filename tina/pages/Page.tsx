@@ -35,21 +35,7 @@ const TinaPage = (props: Props) => {
       )
   );
 
-  console.log("mnu", menuWithSubmenu);
-
-  const page = data.page;
-  const nextData: any =
-    data.page.blocks === null
-      ? {
-          ...data.page,
-          blocks: [
-            {
-              __typename: "PageBlocksContent",
-              body: data.page.body,
-            },
-          ],
-        }
-      : data.page;
+  const { page } = data;
 
   return (
     <>
@@ -95,7 +81,7 @@ const TinaPage = (props: Props) => {
         >
           {page.title}
         </h1>
-        <Blocks {...nextData} />
+        <Blocks {...page} />
       </main>
     </>
   );
