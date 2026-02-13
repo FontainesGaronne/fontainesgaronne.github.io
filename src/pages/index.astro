@@ -25,7 +25,7 @@ const events = [...currentEvents, ...futureEvents] as unknown as {
 	<head>
 		<BaseHead title={config.seo.title} description={config.seo.description} />
 	</head>
-	<body class="font-sans text-gray-800 bg-gray-50 flex flex-col">
+	<body class="min-h-dvh font-sans text-gray-800 bg-gray-50 flex flex-col">
 		<Header />
 		<HomePage {...data} events={events} client:tina />
 		<Footer />

@@ -34,7 +34,7 @@ const data = await getTinaProps();
 	<head>
 		<BaseHead title={data.data.page.title} description={config.seo.description} />
 	</head>
-	<body class="font-sans text-gray-800 bg-gray-50 flex flex-col">
+	<body class="min-h-dvh font-sans text-gray-800 bg-gray-50 flex flex-col">
 		<Header />
 			<Page {...data} nav={nav} pathname={pathname} client:tina />
 		<Footer />

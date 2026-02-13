@@ -84,7 +84,7 @@ const TinaPage = (props: Props) => {
           </ul>
         </nav>
       )}
-      <main className="max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
+      <main className="grow max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
         <h1
           data-tina-field={tinaField(page, "title")}
           className="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
