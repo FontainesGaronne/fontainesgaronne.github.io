@@ -41,10 +41,10 @@ const TinaPage = (props: Props) => {
     <>
       {menuWithSubmenu !== undefined && (
         <nav className="mx-auto w-full max-w-7xl">
-          <ul className="flex items-center border border-gray-100 bg-white rounded-b-lg">
+          <ul className="flex flex-wrap items-center border border-gray-100 bg-white rounded-b-lg">
             <li>
               <a
-                className={`block px-6 py-4 font-medium hover:text-yellow-500${
+                className={`block p-2 md:py-4 xl:px-6 font-medium hover:text-yellow-500${
                   page.id.includes(menuWithSubmenu.href) && " text-yellow-500"
                 }`}
                 href={getRelativeUrl(menuWithSubmenu.href)}
@@ -59,7 +59,7 @@ const TinaPage = (props: Props) => {
                 </li>
                 <li>
                   <a
-                    className={`block px-6 py-4 hover:text-yellow-500${
+                    className={`block p-2 md:py-4 xl:px-6 hover:text-yellow-500${
                       page.id.includes(item.submenuItem.id) &&
                       " text-yellow-500"
                     }`}
@@ -73,7 +73,7 @@ const TinaPage = (props: Props) => {
           </ul>
         </nav>
       )}
-      <main className="grow md:grid grid-cols-[1fr_minmax(0,80rem)_1fr] place-content-start *:col-2 *:mx-auto mx-auto md:mx-0 px-6 py-4 sm:py-16 lg:py-24">
+      <main className="grow md:grid grid-cols-[1fr_minmax(0,80rem)_1fr] max-w-full place-content-start *:col-2 *:mx-auto mx-auto md:mx-0 px-6 py-4 sm:py-16 lg:py-24">
         <h1
           data-tina-field={tinaField(page, "title")}
           className="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
