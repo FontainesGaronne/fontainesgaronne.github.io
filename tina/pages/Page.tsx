@@ -40,7 +40,7 @@ const TinaPage = (props: Props) => {
   return (
     <>
       {menuWithSubmenu !== undefined && (
-        <nav className="mx-auto w-full max-w-7xl">
+        <nav className="md:sticky top-0 z-10 mx-auto w-full max-w-7xl">
           <ul className="flex flex-wrap items-center border border-gray-100 bg-white rounded-b-lg">
             <li>
               <a
