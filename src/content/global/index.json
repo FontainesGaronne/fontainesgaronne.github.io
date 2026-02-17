@@ -46,7 +46,11 @@
           },
           {
             "submenuItem": "src/content/pages/quartier/Espaces-verts.mdx"
-          }
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Artisans-artisans-dart-artistes.mdx"
+          },
+          {}
         ]
       },
       {
