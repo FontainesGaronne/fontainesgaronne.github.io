@@ -40,6 +40,9 @@
           },
           {
             "submenuItem": "src/content/pages/Services et commerces.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Espaces-verts.mdx"
           }
         ]
       },
