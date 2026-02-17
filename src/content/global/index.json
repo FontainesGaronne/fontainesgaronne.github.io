@@ -52,6 +52,9 @@
           },
           {
             "submenuItem": "src/content/pages/quartier/Enfance.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Sant.mdx"
           }
         ]
       },
