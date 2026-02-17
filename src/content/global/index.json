@@ -36,6 +36,9 @@
           },
           {
             "submenuItem": "src/content/pages/histoire/Transports-au-dbut-du-XXme.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/histoire/Faits-divers-dantan.mdx"
           }
         ]
       },
