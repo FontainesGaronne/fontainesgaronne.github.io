@@ -50,7 +50,9 @@
           {
             "submenuItem": "src/content/pages/quartier/Artisans-artisans-dart-artistes.mdx"
           },
-          {}
+          {
+            "submenuItem": "src/content/pages/quartier/Enfance.mdx"
+          }
         ]
       },
       {
