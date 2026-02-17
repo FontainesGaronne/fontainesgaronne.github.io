@@ -46,6 +46,9 @@
           },
           {
             "submenuItem": "src/content/pages/quartier/Associations.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Services-et-commerces.mdx"
           }
         ]
       },
