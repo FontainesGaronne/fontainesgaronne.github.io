@@ -39,16 +39,13 @@
             "submenuItem": "src/content/pages/quartier/dechets.mdx"
           },
           {
-            "submenuItem": "src/content/pages/Services et commerces.mdx"
-          },
-          {
-            "submenuItem": "src/content/pages/quartier/Espaces-verts.mdx"
-          },
-          {
             "submenuItem": "src/content/pages/quartier/Associations.mdx"
           },
           {
             "submenuItem": "src/content/pages/quartier/Services-et-commerces.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Espaces-verts.mdx"
           }
         ]
       },
