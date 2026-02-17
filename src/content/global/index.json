@@ -39,6 +39,9 @@
           },
           {
             "submenuItem": "src/content/pages/histoire/Faits-divers-dantan.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/histoire/Histoire-du-repas-de-quartier-de-Fontaines-Garonne.mdx"
           }
         ]
       },
