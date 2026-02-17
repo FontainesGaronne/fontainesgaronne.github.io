@@ -55,6 +55,9 @@
           },
           {
             "submenuItem": "src/content/pages/quartier/Sant.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Social.mdx"
           }
         ]
       },
