@@ -30,6 +30,9 @@
         "submenu": [
           {
             "submenuItem": "src/content/pages/histoire/Urbanisme.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/histoire/Histoires-de-rues.mdx"
           }
         ]
       },
