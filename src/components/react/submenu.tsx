@@ -30,7 +30,7 @@ export default function SubMenu(props) {
       </button>
       <ul
         className={cn(
-          "absolute z-10 top-full w-full start-0",
+          "absolute z-10 top-full w-max start-0",
           !open && "hidden"
         )}
         id={id}
@@ -42,7 +42,7 @@ export default function SubMenu(props) {
             <li className="last:[&>a]:rounded-b-lg" key={item.submenuItem.id}>
               <a
                 className={cn(
-                  "block border bg-white hover:text-yellow-500 focus:text-yellow-500 border-gray-100 transition py-6 px-6",
+                  "block border bg-white hover:text-yellow-500 focus:text-yellow-500 border-gray-100 transition p-4",
                   getRelativeUrl(props.pathname) ===
                     getRelativeUrl(item.href) && "text-yellow-500"
                 )}
