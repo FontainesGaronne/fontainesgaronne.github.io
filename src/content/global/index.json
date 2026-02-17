@@ -26,7 +26,12 @@
       },
       {
         "href": "/histoire-du-quartier",
-        "label": "Histoire du quartier"
+        "label": "Histoire du quartier",
+        "submenu": [
+          {
+            "submenuItem": "src/content/pages/histoire/Urbanisme.mdx"
+          }
+        ]
       },
       {
         "href": "/Vie-de-quartier",
