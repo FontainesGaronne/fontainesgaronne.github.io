@@ -45,7 +45,7 @@ export default function HeaderSubNav({ data, pathname }) {
             <li>
               <a
                 className={`block p-2 md:py-4 xl:px-4 hover:text-yellow-500${
-                  getRelativeUrl(pathname) ===
+                  getRelativeUrl(removeEndSlash(pathname)) ===
                     getHrefFromRelativePath(
                       removeEndSlash(item.submenuItem.id)
                     ) && " text-yellow-500"
