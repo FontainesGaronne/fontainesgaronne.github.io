@@ -92,6 +92,9 @@
         "submenu": [
           {
             "submenuItem": "src/content/pages/dossiers/Nature-dans-le-quartier.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/dossiers/Urbanisme---PLUi-H.mdx"
           }
         ]
       }
