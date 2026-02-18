@@ -28,8 +28,9 @@ export default function HeaderSubNav({ data, pathname }) {
         <li>
           <a
             className={`block p-2 md:py-4 xl:px-6 font-medium hover:text-yellow-500${
-              getRelativeUrl(pathname) ===
-                getRelativeUrl(menuWithSubmenu.href) && " text-yellow-500"
+              getRelativeUrl(removeEndSlash(pathname)) ===
+                getRelativeUrl(removeEndSlash(menuWithSubmenu.href)) &&
+              " text-yellow-500"
             }`}
             href={getRelativeUrl(menuWithSubmenu.href)}
           >
@@ -45,10 +46,13 @@ export default function HeaderSubNav({ data, pathname }) {
               <a
                 className={`block p-2 md:py-4 xl:px-4 hover:text-yellow-500${
                   getRelativeUrl(pathname) ===
-                    getHrefFromRelativePath(item.submenuItem.id) &&
-                  " text-yellow-500"
+                    getHrefFromRelativePath(
+                      removeEndSlash(item.submenuItem.id)
+                    ) && " text-yellow-500"
                 }`}
-                href={getHrefFromRelativePath(item.submenuItem.id)}
+                href={getHrefFromRelativePath(
+                  removeEndSlash(item.submenuItem.id)
+                )}
               >
                 {item.submenuItem.title}
               </a>
