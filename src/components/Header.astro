@@ -2,9 +2,8 @@
 // import HeaderLink from "./HeaderLink.astro";
 import client from "../../tina/__generated__/client";
 import { tinaField } from "tinacms/dist/react";
-import SubMenu from "./react/submenu";
-import HeaderLink from "./react/headerlink";
-import { getHrefFromRelativePath, getRelativeUrl, removeEndSlash } from "./react/utils";
+import HeaderNav from "./react/headerNav";
+
 
 const { data } = await client.queries.global({
 	relativePath: "index.json",
@@ -33,35 +32,7 @@ const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 				</a>
 			</p>
 			{header?.nav && (
-				<nav role="navigation">
-						<ul class="flex flex-wrap gap-x-6 sm:gap-x-8 lg:gap-x-10 tracking-[.002em] -mx-4">
-							{header.nav.filter(link => link !== null).map((link) => {
-								const submenu = link?.submenu?.map(item => ({ ...item, href: getHrefFromRelativePath(item?.submenuItem?._sys.relativePath) }))
-									return (
-										<li class="relative flex items-center">
-											{!link.submenu ? (
-												<HeaderLink
-													href={getRelativeUrl(link.href)}
-													data-actif={getRelativeUrl(removeEndSlash(pathname)) === getRelativeUrl(link.href)}
-												>
-													{link.label}
-												</HeaderLink>
-											) : (
-												<SubMenu list={submenu} pathname={removeEndSlash(pathname)} client:load>
-													<HeaderLink
-														href={getRelativeUrl(link.href)}
-														data-actif={(getRelativeUrl(removeEndSlash(pathname)) === getRelativeUrl(link.href) || (submenu?.some(item => getRelativeUrl(item.href) === getRelativeUrl(removeEndSlash(pathname))))) ?? false}
-													>
-														{link.label}
-													</HeaderLink>
-												</SubMenu>
-											)}
-										</li>
-									);
-								})
-							}
-						</ul>
-				</nav>
+				  <HeaderNav menu={header.nav} pathname={pathname} client:load />
 			)}
 			</div>
 	</div>
