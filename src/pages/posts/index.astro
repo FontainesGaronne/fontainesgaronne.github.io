@@ -22,7 +22,7 @@ const posts = await getCollection('post');
 		<main class="grow max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
 			<h1
 				class="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
-				tracking-normal text-center title-font bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500"
+				tracking-normal text-center title-font bg-clip-text text-transparent bg-linear-to-r from-yellow-400 to-yellow-500"
 			>
 				Les actualités du quartier
 			</h1>
@@ -34,14 +34,14 @@ const posts = await getCollection('post');
 								class="relative group flex flex-col gap-4 h-full px-6 sm:px-8 md:px-10 py-10 bg-white rounded-md shadow-sm transition duration-150 ease-out hover:shadow-md"
 								href={`/posts/${post.id}`}
 							>
-								<div class="flex flex-col justify-stretch lg:flex-row flex-grow gap-4">
+								<div class="flex flex-col justify-stretch lg:flex-row grow gap-4">
 									{post.data.heroImg && (
 										<div class="flex justify-center items-center bg-gray-100
 										max-h-72 lg:max-h-auto overflow-hidden">
 											<img loading="lazy" width={720} height={360} src={post.data.heroImg} alt="" />
 										</div>
 									)}
-									<div class="flex-grow">
+									<div class="grow">
 										<h2 class="text-gray-700 text-2xl lg:text-3xl font-semibold
 										title-font mb-5 transition-all duration-150 ease-out
 										group-hover:text-yellow-500"
@@ -57,7 +57,7 @@ const posts = await getCollection('post');
 									</div>
 								</div>
 								<div class="flex items-center">
-									<div class="flex-shrink-0 mr-2">
+									<div class="shrink-0 mr-2">
 										{post.data.author?.avatar ? (
 											<img
 												width={500}
