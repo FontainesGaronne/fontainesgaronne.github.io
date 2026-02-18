@@ -98,6 +98,9 @@
           },
           {
             "submenuItem": "src/content/pages/dossiers/Transports.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/dossiers/Conflits-dusage.mdx"
           }
         ]
       }
