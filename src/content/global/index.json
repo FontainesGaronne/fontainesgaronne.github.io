@@ -85,6 +85,15 @@
       {
         "href": "/adhesion",
         "label": "Adhésion"
+      },
+      {
+        "href": "home",
+        "label": "Dossiers",
+        "submenu": [
+          {
+            "submenuItem": "src/content/pages/dossiers/Nature-dans-le-quartier.mdx"
+          }
+        ]
       }
     ]
   }
