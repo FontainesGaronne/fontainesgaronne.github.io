@@ -3,6 +3,7 @@
 import client from "../../tina/__generated__/client";
 import { tinaField } from "tinacms/dist/react";
 import HeaderNav from "./react/headerNav";
+import HeaderSubNav from "./react/headerSubNav";
 
 
 const { data } = await client.queries.global({
@@ -32,8 +33,9 @@ const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 				</a>
 			</p>
 			{header?.nav && (
-				  <HeaderNav menu={header.nav} pathname={pathname} client:load />
+				<HeaderNav menu={header.nav} pathname={pathname} client:load />
 			)}
 			</div>
 	</div>
 </header>
+{header?.nav && (<HeaderSubNav data={data} pathname={pathname} />)}
