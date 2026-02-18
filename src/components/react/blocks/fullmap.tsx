@@ -7,7 +7,7 @@ export const FullMap = ({ data }: { data: PageBlocksFullmap }) => {
     <section
       className={cn(
         "flex flex-col grow prose prose-lg dark:prose-dark mb-10",
-        data.largeFullMap && "col-span-full! max-w-7xl w-full"
+        data.largeFullMap && "col-span-full! max-w-7xl! w-full"
       )}
     >
       {data.titleFullMap && (
