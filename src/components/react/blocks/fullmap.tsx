@@ -1,7 +1,7 @@
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksFullmap } from "../../../../tina/__generated__/types";
-import { cn } from "../utils";
+import { cn } from "@/lib/utils";
 export const FullMap = ({ data }: { data: PageBlocksFullmap }) => {
   return (
     <section

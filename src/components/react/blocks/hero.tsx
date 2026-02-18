@@ -3,7 +3,7 @@ import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksHero } from "../../../../tina/__generated__/types";
 import { Actions } from "./actions";
-import { cn } from "../utils";
+import { cn } from "@/lib/utils";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
   return (
