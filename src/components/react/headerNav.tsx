@@ -44,27 +44,41 @@ export default function HeaderNav({ menu, pathname }) {
             }
 
             return (
-              <NavigationMenuItem key={link.href}>
-                <NavigationMenuTrigger
-                  className={cn(
-                    (isActiveLink ||
+              <NavigationMenuItem key={`${link.label}-${link.href}`}>
+                {link.href ? (
+                  <NavigationMenuTrigger
+                    className={cn(
+                      (isActiveLink ||
+                        submenu.some(
+                          (item) =>
+                            getRelativeUrl(item.href) ===
+                            getRelativeUrl(removeEndSlash(pathname))
+                        )) &&
+                        "bg-yellow-100"
+                    )}
+                    render={
+                      <NavigationMenuLink href={link.href}>
+                        {link.label}
+                        <BsChevronDown
+                          className="relative top-px ml-1 size-3 transition duration-300 group-data-open/navigation-menu-trigger:rotate-180 group-data-popup-open/navigation-menu-trigger:rotate-180"
+                          aria-label="Afficher le sous-menu"
+                        />
+                      </NavigationMenuLink>
+                    }
+                  />
+                ) : (
+                  <NavigationMenuTrigger
+                    className={cn(
                       submenu.some(
                         (item) =>
                           getRelativeUrl(item.href) ===
                           getRelativeUrl(removeEndSlash(pathname))
-                      )) &&
-                      "bg-yellow-100"
-                  )}
-                  render={
-                    <NavigationMenuLink href={link.href}>
-                      {link.label}
-                      <BsChevronDown
-                        className="relative top-px ml-1 size-3 transition duration-300 group-data-open/navigation-menu-trigger:rotate-180 group-data-popup-open/navigation-menu-trigger:rotate-180"
-                        aria-label="Afficher le sous-menu"
-                      />
-                    </NavigationMenuLink>
-                  }
-                />
+                      ) && "bg-yellow-100"
+                    )}
+                  >
+                    {link.label}
+                  </NavigationMenuTrigger>
+                )}
                 <NavigationMenuContent>
                   <ul>
                     {submenu.map((item) => {

@@ -5,6 +5,7 @@ import {
   removeEndSlash,
 } from "./utils";
 import { BsChevronRight } from "react-icons/bs";
+import { cn } from "@/lib/utils";
 
 export default function HeaderSubNav({ data, pathname }) {
   const menuWithSubmenu = data.global.header.nav?.find(
@@ -26,16 +27,23 @@ export default function HeaderSubNav({ data, pathname }) {
     <nav className="md:sticky top-0 z-10 mx-auto w-full">
       <ul className="flex flex-wrap items-center border border-gray-100 bg-white rounded-b-lg">
         <li>
-          <a
-            className={`block p-2 md:py-4 xl:px-6 font-medium hover:text-yellow-500${
-              getRelativeUrl(removeEndSlash(pathname)) ===
-                getRelativeUrl(removeEndSlash(menuWithSubmenu.href)) &&
-              " text-yellow-500"
-            }`}
-            href={getRelativeUrl(menuWithSubmenu.href)}
-          >
-            {menuWithSubmenu.label}
-          </a>
+          {menuWithSubmenu.href ? (
+            <a
+              className={cn(
+                "block p-2 md:py-4 xl:px-6 font-medium hover:text-yellow-500",
+                getRelativeUrl(removeEndSlash(pathname)) ===
+                  getRelativeUrl(removeEndSlash(menuWithSubmenu.href)) &&
+                  "text-yellow-500"
+              )}
+              href={getRelativeUrl(menuWithSubmenu.href)}
+            >
+              {menuWithSubmenu.label}
+            </a>
+          ) : (
+            <span className="block p-2 md:py-4 xl:px-6 font-medium ">
+              {menuWithSubmenu.label}
+            </span>
+          )}
         </li>
         {menuWithSubmenu.submenu.map((item, index) => (
           <React.Fragment key={item.submenuItem.id}>
