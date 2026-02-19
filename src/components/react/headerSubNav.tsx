@@ -6,6 +6,7 @@ import {
 } from "./utils";
 import { BsChevronRight } from "react-icons/bs";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function HeaderSubNav({ data, pathname }) {
   const menuWithSubmenu = data.global.header.nav?.find(
@@ -19,18 +20,20 @@ export default function HeaderSubNav({ data, pathname }) {
       )
   );
 
-  if (!menuWithSubmenu) {
+  const isMobile = useIsMobile();
+
+  if (!menuWithSubmenu || isMobile || !pathname) {
     return null;
   }
 
   return (
     <nav className="md:sticky top-0 z-10 mx-auto w-full">
-      <ul className="flex flex-wrap items-center border border-gray-100 bg-white rounded-b-lg">
+      <ul className="flex flex-wrap p-2 md:py-4 xl:px-4 gap-2 md:gap-4 xl:gap-6 items-center border border-gray-100 bg-white">
         <li>
           {menuWithSubmenu.href ? (
             <a
               className={cn(
-                "block p-2 md:py-4 xl:px-6 font-medium hover:text-yellow-500",
+                "block text-sm lg:text-md font-medium hover:text-yellow-500",
                 getRelativeUrl(removeEndSlash(pathname)) ===
                   getRelativeUrl(removeEndSlash(menuWithSubmenu.href)) &&
                   "text-yellow-500"
@@ -40,9 +43,7 @@ export default function HeaderSubNav({ data, pathname }) {
               {menuWithSubmenu.label}
             </a>
           ) : (
-            <span className="block p-2 md:py-4 xl:px-6 font-medium ">
-              {menuWithSubmenu.label}
-            </span>
+            <span className="block font-medium ">{menuWithSubmenu.label}</span>
           )}
         </li>
         {menuWithSubmenu.submenu.map((item, index) => (
@@ -52,7 +53,7 @@ export default function HeaderSubNav({ data, pathname }) {
             </li>
             <li>
               <a
-                className={`block p-2 md:py-4 xl:px-4 hover:text-yellow-500${
+                className={`block text-sm lg:text-md hover:text-yellow-500${
                   getRelativeUrl(removeEndSlash(pathname)) ===
                     getHrefFromRelativePath(
                       removeEndSlash(item.submenuItem.id)

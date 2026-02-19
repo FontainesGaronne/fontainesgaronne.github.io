@@ -4,6 +4,7 @@ import client from "../../tina/__generated__/client";
 import { tinaField } from "tinacms/dist/react";
 import HeaderNav from "./react/headerNav";
 import HeaderSubNav from "./react/headerSubNav";
+import { getHrefFromRelativePath, getRelativeUrl, removeEndSlash } from "./react/utils";
 
 
 const { data } = await client.queries.global({
@@ -11,19 +12,38 @@ const { data } = await client.queries.global({
 });
 const header = data.global.header;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+const menu = (header?.nav || []) 
+	.filter((link) => link !== null)
+	.map((link) => ({
+		submenu: link?.submenu?.map((item) => ({
+			...item,
+			href: getHrefFromRelativePath(
+				item?.submenuItem?._sys.relativePath
+			),
+			label: item?.submenuItem?.title,
+			isActive: getRelativeUrl(removeEndSlash(pathname)) ===
+				getRelativeUrl(getHrefFromRelativePath(item?.submenuItem?._sys.relativePath)),
+		})),
+		isActive:
+			getRelativeUrl(removeEndSlash(pathname)) ===
+			getRelativeUrl(link.href),
+		href: link?.href,
+		label: link?.label,
+	}));
 ---
 
 <header class="relative bg-white shadow-xs z-20">
-	<div class="mx-auto px-6">
-		<div class="flex items-center justify-between flex-wrap gap-6">
-			<p class="text-lg font-bold tracking-tight xs:my-4">
-				<a href="/" class="flex gap-2 items-center tracking-[.002em]">
+	<div class="mx-auto px-6 py-2">
+		<div class="flex items-center justify-between sm:flex-wrap gap-2">
+			<p class="text-lg font-bold tracking-tight">
+				<a href="/" class="flex flex-wrap gap-2 items-center">
 					<span data-tina-field={tinaField(header, "name")}>
 						<img
 							src="/logo.png"
 							alt=""
 							width={80}
 							height={80}
+							class="size-12 lg:size-16 xl:size:20"
 						/>
 					</span>
 					<span data-tina-field={tinaField(header, "name")}>
@@ -32,10 +52,10 @@ const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 					<span class="sr-only">Retour à la page d'accueil</span>
 				</a>
 			</p>
-			{header?.nav && (
-				<HeaderNav menu={header.nav} pathname={pathname} client:load />
+			{menu && menu.length > 0 && (
+				<HeaderNav header={header} menu={menu} client:load />
 			)}
 			</div>
 	</div>
 </header>
-{header?.nav && (<HeaderSubNav data={data} pathname={pathname} />)}
+{data && (<HeaderSubNav data={data} pathname={pathname} client:load />)}
