@@ -1,19 +1,12 @@
-"use client";
-import React from "react";
-
-import { TinaMarkdown } from "tinacms/dist/rich-text";
+import MarkdownParser from "@/components/react/MarkdownParser";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksContent } from "../../../../tina/__generated__/types";
 
-
 export const Content = ({ data }: { data: PageBlocksContent }) => {
   return (
-    <section
-        className="prose"
-        data-tina-field={tinaField(data, "body")}
-      >
-        <TinaMarkdown content={data.body} />
+    <section className="prose" data-tina-field={tinaField(data, "body")}>
+      <MarkdownParser content={data.body} />
     </section>
   );
 };

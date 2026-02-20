@@ -1,4 +1,4 @@
-import { TinaMarkdown } from "tinacms/dist/rich-text";
+import MarkdownParser from "@/components/react/MarkdownParser";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksHero } from "../../../../tina/__generated__/types";
@@ -31,7 +31,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
               data-tina-field={tinaField(data, "text")}
               className="prose prose-lg mb-10 !*:text-xl"
             >
-              <TinaMarkdown content={data.text} />
+              <MarkdownParser content={data.text} />
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
               data-tina-field={tinaField(data, "text2")}
               className="prose prose-lg mb-10"
             >
-              <TinaMarkdown content={data.text2} />
+              <MarkdownParser content={data.text2} />
             </div>
           </div>
         )}

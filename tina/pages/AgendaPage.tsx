@@ -1,28 +1,28 @@
-import React from 'react';
 import { tinaField, useTina } from "tinacms/dist/react";
-import type { AgendaQuery, AgendaQueryVariables } from '../__generated__/types.ts';
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import EventDates from '../../src/components/react/eventDates.tsx';
-
+import type {
+  AgendaQuery,
+  AgendaQueryVariables,
+} from "../__generated__/types.ts";
+import MarkdownParser from "@/components/react/MarkdownParser";
+import EventDates from "../../src/components/react/eventDates.tsx";
 
 type Props = {
-	variables: AgendaQueryVariables;
-	data: AgendaQuery;
-	query: string;
-}
+  variables: AgendaQueryVariables;
+  data: AgendaQuery;
+  query: string;
+};
 
 export default function AdminBlogPost(props: Props) {
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
 
-	const { data } = useTina({
-		query: props.query,
-		variables: props.variables,
-		data: props.data,
-	})
+  const post = data.agenda;
 
-	const post = data.agenda;
-
-	return (
-		<article>
+  return (
+    <article>
       <h1
         data-tina-field={tinaField(post, "title")}
         className="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
@@ -37,17 +37,17 @@ export default function AdminBlogPost(props: Props) {
         {post.organizer && (
           <p className="flex items-center gap-2 px-4 py-2">
             <span>Organisé par : </span>
-              {post.organizer.avatar && (
-                <img
-                  data-tina-field={tinaField(post.organizer, "avatar")}
-                  loading='lazy'
-                  className="size-14 object-cover rounded-full shadow-sm"
-                  src={post.organizer.avatar}
-                  alt=""
-                  width={100}
-                  height={100}
-                />
-              )}
+            {post.organizer.avatar && (
+              <img
+                data-tina-field={tinaField(post.organizer, "avatar")}
+                loading="lazy"
+                className="size-14 object-cover rounded-full shadow-sm"
+                src={post.organizer.avatar}
+                alt=""
+                width={100}
+                height={100}
+              />
+            )}
             <span
               data-tina-field={tinaField(post.organizer, "name")}
               className="text-base font-medium text-gray-600 group-hover:text-gray-800"
@@ -64,7 +64,6 @@ export default function AdminBlogPost(props: Props) {
         />
       </div>
 
-      
       <div className="md:flex gap-4">
         {post.heroImg && (
           <div className="px-4 w-full">
@@ -94,10 +93,10 @@ export default function AdminBlogPost(props: Props) {
             data-tina-field={tinaField(post, "_body")}
             className="prose m-auto"
           >
-            <TinaMarkdown content={post._body} />
+            <MarkdownParser content={post._body} />
           </div>
         )}
       </div>
-		</article>
-	);
+    </article>
+  );
 }

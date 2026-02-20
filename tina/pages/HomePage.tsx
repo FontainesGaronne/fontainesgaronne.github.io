@@ -1,6 +1,6 @@
 import { tinaField, useTina } from "tinacms/dist/react";
 import type { Agenda, PageQuery, PageQueryVariables } from "../__generated__/types";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
+import MarkdownParser from "@/components/react/MarkdownParser";
 import { Blocks } from "../../src/components/react/blocks";
 import EventDates from "../../src/components/react/eventDates";
 import { BsArrowRight } from "react-icons/bs";
@@ -18,23 +18,28 @@ type Props = {
 };
 
 const HomePage = (props: Props) => {
-	const { data } = useTina({
-		query: props.query,
-		variables: props.variables,
-		data: props.data,
-	});
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
 
-	const page = data.page;
+  const page = data.page;
 
-	const nextData: any = data.page.blocks === null ? {
-		...data.page,
-		blocks: [{
-			__typename: "PageBlocksContent",
-			body: data.page.body,
-		}]
-  } : data.page;
-	
-	const events = props.events;
+  const nextData: any =
+    data.page.blocks === null
+      ? {
+          ...data.page,
+          blocks: [
+            {
+              __typename: "PageBlocksContent",
+              body: data.page.body,
+            },
+          ],
+        }
+      : data.page;
+
+  const events = props.events;
 
   return (
     <main className="grow max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24">
@@ -73,7 +78,7 @@ const HomePage = (props: Props) => {
                       </h3>
                       {post.data.excerpt && (
                         <div className="prose mb-5 opacity-70">
-                          <TinaMarkdown content={post.data.excerpt} />
+                          <MarkdownParser content={post.data.excerpt} />
                         </div>
                       )}
                     </div>
@@ -100,10 +105,10 @@ const HomePage = (props: Props) => {
         </section>
       )}
       <div data-tina-field={tinaField(page, "body")}>
-        <TinaMarkdown content={page.body} />
+        <MarkdownParser content={page.body} />
       </div>
     </main>
   );
-}
+};
 
 export default HomePage;

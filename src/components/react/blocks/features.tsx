@@ -1,12 +1,7 @@
-import React from "react";
 import { tinaField } from "tinacms/dist/react";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
+import MarkdownParser from "@/components/react/MarkdownParser";
 
-export const Feature = ({
-  data,
-}: {
-  data: any;
-}) => {
+export const Feature = ({ data }: { data: any }) => {
   return (
     <div
       data-tina-field={tinaField(data)}
@@ -25,7 +20,7 @@ export const Feature = ({
           data-tina-field={tinaField(data, "text")}
           className="text-base opacity-80 leading-relaxed"
         >
-          <TinaMarkdown content={data.text} />
+          <MarkdownParser content={data.text} />
         </div>
       )}
     </div>
@@ -34,15 +29,11 @@ export const Feature = ({
 
 export const Features = ({ data }: { data: any }) => {
   return (
-    <section
-      className="flex-1 relative transition duration-150 ease-out body-font sm:-mx-6 rounded-lg overflow-hidden text-gray-900 bg-gray-100"
-    >
-      <div
-        className="max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24 flex flex-wrap gap-x-10 gap-y-8 text-left"
-      >
+    <section className="flex-1 relative transition duration-150 ease-out body-font sm:-mx-6 rounded-lg overflow-hidden text-gray-900 bg-gray-100">
+      <div className="max-w-7xl mx-auto px-6 py-4 sm:py-16 lg:py-24 flex flex-wrap gap-x-10 gap-y-8 text-left">
         {data.items?.map((block, i) => {
-            return <Feature key={i} data={block} />;
-          })}
+          return <Feature key={i} data={block} />;
+        })}
       </div>
     </section>
   );

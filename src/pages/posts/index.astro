@@ -6,7 +6,7 @@ import config from '../../content/config/config.json';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { BsArrowRight } from 'react-icons/bs';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import MarkdownParser from "@/components/react/MarkdownParser";
 
 const posts = await getCollection('post');
 
@@ -52,7 +52,7 @@ const posts = await getCollection('post');
 											</span>
 										</h2>
 										<div class="prose mx-auto mb-5 opacity-70">
-											<TinaMarkdown content={post.data.excerpt} />
+											<MarkdownParser content={post.data.excerpt} />
 										</div>
 									</div>
 								</div>

@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import config from '../../content/config/config.json';	
 import { getCollection } from 'astro:content';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import MarkdownParser from "@/components/react/MarkdownParser";
 import EventDates from '../../components/react/eventDates';
 
 const [ pastEvents, currentEvents, futureEvents ] = await Promise.all([
@@ -68,7 +68,7 @@ const nextData = [{
 													duration-150 ease-out">{post.data.title}</h2>
 													{post.data.excerpt && (
 														<div class="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
-															<TinaMarkdown content={post.data.excerpt} />
+															<MarkdownParser content={post.data.excerpt} />
 														</div>
 													)}
 												</div>
