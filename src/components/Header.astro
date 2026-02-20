@@ -30,6 +30,9 @@ const menu = (header?.nav || [])
 		href: link?.href,
 		label: link?.label,
 	}));
+
+const subNav = pathname && menu
+	.find((link) => (link.isActive && link.submenu ) || link.submenu?.some((sublink) => sublink.isActive))
 ---
 
 <header class="relative bg-white shadow-xs z-20">
@@ -58,4 +61,4 @@ const menu = (header?.nav || [])
 			</div>
 	</div>
 </header>
-{data && (<HeaderSubNav data={data} pathname={pathname} client:load />)}
+{subNav && (<HeaderSubNav menu={subNav} client:load />)}
