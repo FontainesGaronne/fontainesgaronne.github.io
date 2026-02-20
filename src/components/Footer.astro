@@ -1,5 +1,5 @@
 ---
-import { BsEnvelope, BsFacebook, BsInstagram, BsRssFill } from "react-icons/bs";
+import { Facebook, Instagram, Mail, Rss } from "lucide-react";
 import Map from '../components/Map.astro';
 
 
@@ -27,14 +27,14 @@ import Map from '../components/Map.astro';
 					<ul class="flex items-center gap-2">
 						<li>
 							<a href="https://www.facebook.com/people/Comit%C3%A9-de-quartier-Fontaines-Garonne/100064331366255/" target="_blank">
-								<BsFacebook size={16} aria-hidden />
+								<Facebook size={16} aria-hidden />
 								<span class="sr-only">sur Facebook</span>
 							</a>
 						</li>
 						<li role="presentation">-</li>
 						<li>
 							<a href="https://www.instagram.com/comitequartierfontainesgaronne/" target="_blank">
-								<BsInstagram size={16} aria-hidden />
+								<Instagram size={16} aria-hidden />
 								<span class="sr-only">sur Instagram</span>
 							</a>
 						</li>
@@ -43,13 +43,13 @@ import Map from '../components/Map.astro';
 				<ul class="flex flex-col gap-2">
 					<li>
 						<a href="mailto:fontaines.garonne@free.fr" class="flex gap-2 items-center hover:underline">
-							<BsEnvelope size={16} aria-hidden />
+							<Mail size={16} aria-hidden />
 							Contactez-nous
 						</a>
 					</li>
 					<li>
 						<a class="flex gap-2 items-center hover:underline" href="/rss.xml">
-							<BsRssFill size={16} aria-hidden />
+							<Rss size={16} aria-hidden />
 							S'abonner au flux RSS des actualités <span class="sr-only">du quartier</span>
 						</a>
 					</li>

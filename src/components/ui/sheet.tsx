@@ -5,7 +5,7 @@ import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { BsX } from "react-icons/bs";
+import { X } from "lucide-react";
 
 function Sheet({ ...props }: SheetPrimitive.Root.Props) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
@@ -70,7 +70,7 @@ function SheetContent({
               />
             }
           >
-            <BsX aria-hidden />
+            <X aria-hidden />
             <span className="sr-only">Fermer</span>
           </SheetPrimitive.Close>
         )}

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -8,9 +7,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { BsChevronDown } from "react-icons/bs";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { HeaderMobileNav } from "./headerMobileNav";
+import { ChevronDown } from "lucide-react";
 
 export default function HeaderNav({ header, menu }) {
   const isMobile = useIsMobile();
@@ -47,7 +46,7 @@ export default function HeaderNav({ header, menu }) {
                   render={
                     <NavigationMenuLink href={link.href}>
                       {link.label}
-                      <BsChevronDown
+                      <ChevronDown
                         className="relative top-px ml-1 size-3 transition duration-300 group-data-open/navigation-menu-trigger:rotate-180 group-data-popup-open/navigation-menu-trigger:rotate-180"
                         aria-label="Afficher le sous-menu"
                       />

@@ -1,4 +1,4 @@
-import { BsArrowUpRightSquare } from "react-icons/bs";
+import { ExternalLink } from "lucide-react";
 import type { Maybe, Scalars } from "tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
@@ -21,7 +21,10 @@ export default function MarkdownParser({
                 href={url}
               >
                 <span className="underline">{children}</span>{" "}
-                <BsArrowUpRightSquare className="inline align-baseline" />
+                <ExternalLink
+                  className="size-4 inline align-baseline"
+                  arai-hidden
+                />
                 <span className="sr-only">
                   (lien externe, ouverture dans une nouvelle fenêtre)
                 </span>

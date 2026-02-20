@@ -1,5 +1,4 @@
-import * as React from "react";
-import { BiRightArrowAlt } from "react-icons/bi";
+import { ArrowRight } from "lucide-react";
 import { tinaField } from "tinacms/dist/react";
 
 export const Actions = ({
@@ -23,7 +22,7 @@ export const Actions = ({
                 >
                   {action.label}
                   {action.icon && (
-                    <BiRightArrowAlt
+                    <ArrowRight
                       className={`ml-1 -mr-1 w-6 h-6 opacity-80`}
                       aria-hidden
                     />
@@ -45,7 +44,10 @@ export const Actions = ({
               >
                 {action.label}
                 {action.icon && (
-                  <BiRightArrowAlt className={`ml-0 mr-0 w-6 h-6 opacity-80`} aria-hidden />
+                  <ArrowRight
+                    className={`ml-0 mr-0 w-6 h-6 opacity-80`}
+                    aria-hidden
+                  />
                 )}
               </a>
             );

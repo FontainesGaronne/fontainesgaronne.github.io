@@ -3,7 +3,7 @@ import type { Agenda, PageQuery, PageQueryVariables } from "../__generated__/typ
 import MarkdownParser from "@/components/react/MarkdownParser";
 import { Blocks } from "../../src/components/react/blocks";
 import EventDates from "../../src/components/react/eventDates";
-import { BsArrowRight } from "react-icons/bs";
+import { ArrowRight } from "lucide-react";
 
 type Props = {
   variables: PageQueryVariables;
@@ -99,7 +99,7 @@ const HomePage = (props: Props) => {
               href="/agenda"
             >
               Les évènements dans votre quartier
-              <BsArrowRight className="size-6 opacity-80" aria-hidden />
+              <ArrowRight className="size-6 opacity-80" aria-hidden />
             </a>
           </div>
         </section>

@@ -1,7 +1,7 @@
 import * as React from "react";
-import { BsChevronRight } from "react-icons/bs";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { ChevronRight } from "lucide-react";
 
 export default function HeaderSubNav({ menu }) {
   const isMobile = useIsMobile();
@@ -31,7 +31,7 @@ export default function HeaderSubNav({ menu }) {
         {menu.submenu.map((link, index) => (
           <React.Fragment key={`${link.label}-${link.href}`}>
             <li role="presentation" className="text-gray-300" aria-hidden>
-              {index === 0 ? <BsChevronRight /> : "|"}
+              {index === 0 ? <ChevronRight /> : "|"}
             </li>
             <li>
               <a

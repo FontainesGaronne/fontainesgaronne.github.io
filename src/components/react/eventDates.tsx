@@ -1,4 +1,4 @@
-import { BsCalendar2CheckFill } from "react-icons/bs";
+import { Calendar } from "lucide-react";
 
 type EventDatesType = Partial<HTMLParagraphElement> & {
   startDate: Date;
@@ -33,7 +33,7 @@ export default function EventDates({
   ) {
     return (
       <p className={classNames}>
-        <BsCalendar2CheckFill aria-hidden />
+        <Calendar aria-hidden />
         <span>
           <span>Du</span>{" "}
           <time
@@ -64,7 +64,7 @@ export default function EventDates({
 
   return (
     <p className={classNames}>
-      <BsCalendar2CheckFill aria-hidden />
+      <Calendar aria-hidden />
       <span>
         <span>Le</span>{" "}
         <time

@@ -5,14 +5,13 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetDescription,
   SheetClose,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "../ui/button";
-import { BsX } from "react-icons/bs";
 import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 
 const SIDEBAR_WIDTH_MOBILE = "18rem";
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
@@ -60,12 +59,11 @@ export function HeaderMobileNav({
       >
         <SheetHeader>
           <SheetTitle>{header?.name}</SheetTitle>
-          {/* <SheetDescription>Menu</SheetDescription> */}
           <SheetClose
             className="absolute top-2 right-2"
             render={
               <Button size="icon" variant="ghost">
-                <BsX aria-label="Fermer le menu" />
+                <X aria-label="Fermer le menu" />
               </Button>
             }
           ></SheetClose>
