@@ -50,31 +50,31 @@
         "label": "Vie de quartier",
         "submenu": [
           {
+            "submenuItem": "src/content/pages/quartier/Espaces-verts.mdx"
+          },
+          {
             "submenuItem": "src/content/pages/quartier/transports.mdx"
           },
           {
             "submenuItem": "src/content/pages/quartier/dechets.mdx"
           },
           {
+            "submenuItem": "src/content/pages/quartier/Enfance.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Social.mdx"
+          },
+          {
             "submenuItem": "src/content/pages/quartier/Associations.mdx"
+          },
+          {
+            "submenuItem": "src/content/pages/quartier/Sante.mdx"
           },
           {
             "submenuItem": "src/content/pages/quartier/Services-et-commerces.mdx"
           },
           {
-            "submenuItem": "src/content/pages/quartier/Espaces-verts.mdx"
-          },
-          {
-            "submenuItem": "src/content/pages/quartier/Artisans-artisans-dart-artistes.mdx"
-          },
-          {
-            "submenuItem": "src/content/pages/quartier/Enfance.mdx"
-          },
-          {
-            "submenuItem": "src/content/pages/quartier/Sant.mdx"
-          },
-          {
-            "submenuItem": "src/content/pages/quartier/Social.mdx"
+            "submenuItem": "src/content/pages/quartier/artisans-dart-artistes.mdx"
           }
         ]
       },
