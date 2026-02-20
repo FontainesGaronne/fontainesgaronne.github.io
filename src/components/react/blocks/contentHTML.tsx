@@ -1,10 +1,14 @@
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksContentHtml } from "../../../../tina/__generated__/types";
+import { cn } from "@/lib/utils";
 
 export const ContentHTML = ({ data }: { data: PageBlocksContentHtml }) => {
   return (
-    <section data-tina-field={tinaField(data, "HTMLContent")}>
+    <section
+      className={cn(data.largeContent && "col-span-full! max-w-7xl! w-full")}
+      data-tina-field={tinaField(data, "HTMLContent")}
+    >
       {data.headline && (
         <h3
           data-tina-field={tinaField(data, "headline")}
@@ -44,6 +48,11 @@ export const contentHTMLBlockSchema: Template = {
       ui: {
         component: "textarea",
       },
+    },
+    {
+      name: "largeContent",
+      label: "Pleine largeur",
+      type: "boolean",
     },
   ],
 };
