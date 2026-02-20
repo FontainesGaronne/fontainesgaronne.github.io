@@ -52,16 +52,7 @@ function MapContent() {
 };
 
 export default function Map() {
-  const [domLoaded, setDomLoaded] = React.useState(false);
-
-  React.useEffect(() => {
-    setDomLoaded(true);
-  }, []);
-
-  
-  if (!domLoaded) return null;
-  
-  const mapElement = document.getElementById('map')!;
+  const mapElement = document.getElementById("map")!;
   if (!mapElement) {
     return null;
   }
