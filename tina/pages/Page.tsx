@@ -18,7 +18,7 @@ const TinaPage = (props: Props) => {
   const { page } = data;
 
   return (
-    <main className="grow md:grid grid-cols-[1fr_minmax(0,80rem)_1fr] max-w-full place-content-start *:col-2 *:mx-auto mx-auto md:mx-0 px-6 py-4 sm:py-16 lg:py-24">
+    <main className="grow md:grid grid-cols-[1fr_minmax(0,80rem)_1fr] max-w-full place-content-start *:col-2 *:mx-auto [&>section]:my-5 mx-auto md:mx-0 px-6 py-4 sm:py-16 lg:py-24">
       <h1
         data-tina-field={tinaField(page, "title")}
         className="mb-6 lg:mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold
