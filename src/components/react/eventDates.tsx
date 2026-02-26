@@ -23,8 +23,6 @@ export default function EventDates({
     day: "numeric",
   };
 
-  console.error(startDate, endDate);
-
   if (
     startDate &&
     endDate &&
