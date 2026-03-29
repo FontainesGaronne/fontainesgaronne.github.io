@@ -9,7 +9,7 @@ import redirects from "./_redirects.mjs";
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || `https://fontainesgaronne.github.io/`,
+  site: process.env.SITE_URL || `https://fontaines-garonne.fr/`,
   integrations: [
     mdx(),
     sitemap(),
