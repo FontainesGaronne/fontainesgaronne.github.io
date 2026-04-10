@@ -31,7 +31,7 @@ export default function AdminBlogPost(props: Props) {
         data-tina-field={tinaField(post, "author")}
         className="flex items-center justify-center mb-16"
       >
-        {post.author && (
+        {/* {post.author && (
           <>
             {post.author.avatar && (
               <div className="shrink-0 mr-4">
@@ -55,7 +55,7 @@ export default function AdminBlogPost(props: Props) {
               —
             </span>
           </>
-        )}
+        )} */}
         <p
           data-tina-field={tinaField(post, "date")}
           className="text-base text-gray-400 group-hover:text-gray-500 "
