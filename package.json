@@ -15,7 +15,7 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@base-ui/react": "^1.2.0",
-    "@tailwindcss/vite": "^4.1.18",
+    "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-virtual": "^3.13.18",
     "@turf/bbox": "^7.3.2",
     "@types/react": "^19.2.8",
