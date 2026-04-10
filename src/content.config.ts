@@ -78,6 +78,8 @@ const page = defineCollection({
   }),
 })
 
+const currentDateFromParis = new Date(new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })).toISOString() 
+
 const agenda = defineCollection({
   loader: async () => {
     const postsResponse = await client.queries.agendaConnection();
@@ -95,7 +97,7 @@ const pastEvents = defineCollection({
       last: -1,
       filter: {
         endDate: {
-          before: new Date().toISOString()
+          before: currentDateFromParis
         }
       }
     });
@@ -110,10 +112,10 @@ const currentEvents = defineCollection({
       sort: 'endDate',
       filter: {
         startDate: {
-          before: new Date().toISOString()
+          before: currentDateFromParis
         },
         endDate: {
-          after: new Date().toISOString()
+          after: currentDateFromParis
         }
       }
     });
@@ -129,7 +131,7 @@ const futureEvents = defineCollection({
       sort: 'startDate',
       filter: {
         startDate: {
-          after: new Date().toISOString()
+          after: currentDateFromParis
         }
       }
     });
