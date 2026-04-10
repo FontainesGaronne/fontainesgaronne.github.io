@@ -20,7 +20,7 @@ export default function MarkdownParser({
                 className="inline flex-wrap align-baseline no-underline"
                 href={url}
               >
-                <span className="underline">{children}</span>{" "}
+                <span className="underline [&>img]:inline">{children}</span>{" "}
                 <ExternalLink
                   className="size-4 inline align-baseline"
                   aria-hidden
