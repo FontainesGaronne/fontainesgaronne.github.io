@@ -23,7 +23,7 @@ export default function MarkdownParser({
                 <span className="underline">{children}</span>{" "}
                 <ExternalLink
                   className="size-4 inline align-baseline"
-                  arai-hidden
+                  aria-hidden
                 />
                 <span className="sr-only">
                   (lien externe, ouverture dans une nouvelle fenêtre)
