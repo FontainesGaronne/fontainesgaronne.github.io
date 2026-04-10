@@ -49,7 +49,7 @@ const HomePage = (props: Props) => {
       {events.length > 0 && (
         <section className="sm:px-0 flex flex-wrap gap-x-10 gap-y-8 pt-8 sm:pt-16">
           <h2 className="text-3xl font-semibold title-font">
-            Les prochaines dates dans le quartier à retenir
+            Les prochains évènements dans le quartier à retenir
           </h2>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 w-full mb-4">
             {events.map((post) => {
