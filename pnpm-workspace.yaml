@@ -1,5 +1,8 @@
 packages:
   - apps/**
 
+ignoredBuiltDependencies:
+  - sharp
+
 onlyBuiltDependencies:
   - better-sqlite3
