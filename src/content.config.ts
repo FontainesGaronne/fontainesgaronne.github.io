@@ -78,7 +78,10 @@ const page = defineCollection({
   }),
 })
 
-const currentDateFromParis = new Date(new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })).toISOString() 
+
+const [dd, mm, yyyy] = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris", dateStyle: "short" }).split('/');
+
+const currentDateFromParis = new Date(`${yyyy}-${mm}-${dd}`).toISOString();
 
 const agenda = defineCollection({
   loader: async () => {
