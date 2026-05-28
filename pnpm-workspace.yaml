@@ -4,5 +4,7 @@ packages:
 ignoredBuiltDependencies:
   - sharp
 
+dangerouslyAllowAllBuilds: []
+
 onlyBuiltDependencies:
   - better-sqlite3
