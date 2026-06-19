@@ -27,7 +27,7 @@ jobs:
       TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Install, build, and upload your site
         uses: withastro/action@v6
         with:
