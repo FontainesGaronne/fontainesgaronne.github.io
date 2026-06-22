@@ -7,7 +7,7 @@ const { data : { agenda, post } } = Astro.props;
 const title = `${post ? `${post.title} - actualités` : `${agenda.title} - agenda`}`;
 ---
 
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 	<head>
 		<BaseHead title={`${title} - ${config.seo.title}`} />
 	</head>
