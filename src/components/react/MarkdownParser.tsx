@@ -12,14 +12,14 @@ export default function MarkdownParser({
       content={content}
       components={{
         h2: (props) => {
-          const id = props?.children.props.content.map(item => item.text.split(' ').join('-').trim().toLowerCase()).join('-')
+          const id = props?.children.props.content.map(item => item.text?.split(' ').join('-').trim().toLowerCase()).join('-')
           return (
           <h2 id={id} className="scroll-mt-20"> 
             <a href={`#${id}`} className="no-underline hover:after:content-['#'] after:ms-2 after:text-foreground/60">{props.children}</a>
           </h2>
         )},
         h3: (props) => {
-          const id = props?.children.props.content.map(item => item.text.split(' ').join('-').trim().toLowerCase()).join('-')
+          const id = props?.children.props.content.map(item => item.text?.split(' ').join('-').trim().toLowerCase()).join('-')
           return (
           <h3 id={id} className="scroll-mt-20"> 
             <a href={`#${id}`} className="no-underline hover:after:content-['#'] after:ms-1 after:text-foreground/60">{props.children}</a>
