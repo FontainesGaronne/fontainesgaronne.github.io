@@ -1,10 +1,13 @@
 packages:
   - apps/**
 
-ignoredBuiltDependencies:
-  - sharp
+strictDepBuilds: true
 
-dangerouslyAllowAllBuilds: []
+allowBuilds:
+  better-sqlite3: true
+  core-js: false
+  esbuild: true
+  msw: false
+  protobufjs: false
+  sharp: false
 
-onlyBuiltDependencies:
-  - better-sqlite3
