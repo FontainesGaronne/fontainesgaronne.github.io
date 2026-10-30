@@ -68,7 +68,7 @@ const nextData = [{
 													duration-150 ease-out">{post.data.title}</h2>
 													{post.data.excerpt && (
 														<div class="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
-															<MarkdownParser content={post.data.excerpt} />
+															<MarkdownParser content={post.data.excerpt} enableLinks={false} />
 														</div>
 													)}
 												</div>

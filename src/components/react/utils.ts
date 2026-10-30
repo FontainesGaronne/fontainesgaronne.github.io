@@ -20,3 +20,14 @@ export function getHrefFromRelativePath(relativePath?: string) {
 export function removeEndSlash(str: string) {
   return str.endsWith("/") ? str.slice(0, -1) : str;
 }
+
+export function slugify(str: string) {
+  str = str.trim()
+  str = str.toLowerCase()
+  str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  str = str.replace(/[^a-z0-9 -]/g, '')
+  str = str.replace(/\s+/g, '-')
+  str = str.replace(/-+/g, '-')
+
+  return str
+}
